@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor - Learn JS</title>
+
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" type="image/png" href="./public/icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Monaco Editor CSS - Sadece bir kez ekleyin -->
+    <link rel="stylesheet" data-name="vs/editor/editor.main"
+        href="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/editor/editor.main.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .pt-6 {
+            padding-top: 5rem !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="w-100 position-fixed z-index-damn header-bg fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand ps-2" href="/">Learn JS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="../konular.html">Konular</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="code-editor.html">Code Editor</a></li>
+                    </ul>
+                    <button id="theme">Theme</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section
+        class="w-100 min-vh-100 d-flex position-relative flex-column justify-content-center align-items-center pt-6 content-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3>JavaScript Kod Derleyicisi</h3>
+                    <p class="text-start">JavaScript kodlarını yazıp buradan çalıştırabilirsiniz. Çalıştır butonu ile
+                        kodunuzu çalıştırabilir, temizle butonu ile tamamnı temizlyebilirsiniz.</p>
+                    <div id="editor-container" class="w-100 d-block"></div>
+                    <div class="editor-controls mt-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <select id="language-select" class="form-select form-select-sm" style="width: 150px;">
+                                    <option value="javascript">JavaScript</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button id="run-button" class="btn btn-primary btn-sm">Çalıştır</button>
+                                <button id="clear-button" class="btn btn-secondary btn-sm">Temizle</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="output" class="mt-3 p-3 mb-3 bg-light">
+                        <h5>Çıktı:</h5>
+                        <pre id="output-content"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button class="scroll-top-btn" id="scroll-btn">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <footer class="w-100 bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col d-flex justify-content-center align-items-center">
+                    <p class="copyright my-2 text-white">Copyright 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="offline" class="offline-overlay">
+        <div class="offline-container">
+            <h3>İnternet Bağlantısında sorun var  😕</h3>
+            <p>Lütfen bağlantınızı kontrol edin.</p>
+            <button onclick="location.reload()" class="retry-btn">Tekrar Dene</button>
+        </div>
+    </div>
+
+    <div id="online-notification" class="online-notification">
+        🔄 Bağlantı geri geldi!
+    </div>
+
+    <!-- Bootstrap JS (önce yüklenmeli) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- Monaco Editor CDN -->
+    <script>
+        var require = { paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/editor/editor.main.nls.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/editor/editor.main.js" defer></script>
+
+    <script>
+        // Sayfa yüklendiğinde editörü başlat
+        window.onload = function () {
+            // Monaco Editor'ü başlat
+            require(['vs/editor/editor.main'], function () {
+                // Varsayılan değer
+                const defaultCode =
+                    `// JavaScript kodunuzu buraya yazın
+console.log("Merhaba, dünya!");
+
+function topla(a, b) {
+    return a + b;
+}
+
+// Fonksiyonu çağırın
+console.log(topla(5, 3));`;
+
+                // Editörü oluştur
+                window.editor = monaco.editor.create(document.getElementById('editor-container'), {
+                    value: defaultCode,
+                    language: 'javascript',
+                    theme: 'vs-dark',
+                    automaticLayout: true,
+                    minimap: {
+                        enabled: true
+                    },
+                    fontSize: 14,
+                    scrollBeyondLastLine: false,
+                    roundedSelection: false,
+                    padding: {
+                        top: 10
+                    }
+                });
+
+                // Çalıştır butonu
+                document.getElementById('run-button').addEventListener('click', function () {
+                    const code = window.editor.getValue();
+                    const outputEl = document.getElementById('output-content');
+
+                    try {
+                        // Konsol çıktılarını yakalamak için
+                        const originalConsoleLog = console.log;
+                        let output = '';
+
+                        console.log = function (...args) {
+                            output += args.join(' ') + '\n';
+                            originalConsoleLog.apply(console, args);
+                        };
+
+                        // Kodu çalıştır
+                        eval(code);
+
+                        // Orijinal console.log'u geri yükle
+                        console.log = originalConsoleLog;
+
+                        outputEl.textContent = output || 'Çıktı bulunamadı.';
+                    } catch (error) {
+                        outputEl.textContent = 'Hata: ' + error.message;
+                    }
+                });
+
+                // Temizle butonu
+                document.getElementById('clear-button').addEventListener('click', function () {
+                    window.editor.setValue('');
+                });
+            });
+        };
+    </script>
+
+    <script src="./main.js" defer></script>
+
+</body>
+
+</html>

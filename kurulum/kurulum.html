@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Kurulumu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
+        rel="stylesheet" />
+    <link id="prism-dark" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-dracula.min.css"
+        rel="stylesheet" disabled>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <link rel="icon" type="image/png" href="../public/icon.png">
+    <link rel="manifest" href="../manifest.json">
+
+</head>
+
+<body>
+
+    <header class="w-100 position-fixed z-index-damn header-bg fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand ps-2" href="/">Learn JS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="../konular.html">Konular</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="../../code-editor.html">Code Editor</a></li>
+                    </ul>
+                    <button id="theme">Theme</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="w-100 subject-title-space title-bg ps-2 pb-2">
+        <h3 class="title">JavaScript Kurulumu</h3>
+    </div>
+
+    <nav aria-label="breadcrumb" id="breadcrumb">
+        <ol class="breadcrumb">
+        </ol>
+    </nav>
+
+    <section class="w-100  min-vh-100 d-flex position-relative flex-column pt-4 pb-2 content-bg">
+
+        <div class="overflow-hidden  pt-0 pb-4">
+            <img src="./javascript-kurulum.jpg" class="w-100 img-fluid  shadow">
+            <p class="text-center py-2">JavaScript ve Node.js logosu mevcut. Javascript Node.js Kurulumu yazıyor </p>
+        </div>
+
+        <div class="container-xl">
+
+            <div class="row">
+
+                <div class="col rounded  mt-1 mb-3">
+
+                    <div id="table-of-contents">
+                        <div class="toc-title w-100">
+                            <h3 class="pt-3 pb-1 px-3">İçindekiler</h3>
+                        </div>
+    
+                        <ul>
+                            <li><a href="#JavaScript-Kurulum">JavaScript Kurulumu</a></li>
+                            <li><a href="#Kurulum-Sonrası">Kurulum Sonrası</a></li>
+                            <li><a href="#Node-Js-Test-Etme">Node.js Test Etme</a></li>
+                            <li><a href="#Kod-Editör-Kullanımı">Kod Editör Kullanımı</a></li>
+    
+                            <li>
+                                <a href="#NVM-Kurulumu">NVM Kurulumu Daha mı İyi?</a>
+                                <ul>
+                                    <li><a href="#Gerekli-Dosya-İndirilmesi">Gerekli Dosya İndirilmesi</a></li>
+                                    <li><a href="#NVM-Kontrolü-ve-Node.Js-Kurulumu">NVM Kontrolü ve Node.Js Kurulumu</a>
+                                    </li>
+                                </ul>
+                            </li>
+    
+                            <li>
+                                <a href="#Paket-Yönetim-Sistemi">Paket Yönetim Sistemi</a>
+                                <ul>
+                                    <li><a href="#NPM">NPM (Node Package Manager)</a></li>
+                                    <li><a href="#Yarn">Yarn</a></li>
+                                    <li><a href="#PNPM">PNPM</a></li>
+                                </ul>
+                            </li>
+    
+                            <li><a href="#Kaynakça">Kaynakça</a></li>
+    
+                        </ul>
+                    </div>
+
+                </div>
+
+
+                <div class="col-12 pb-4">
+
+                    <h3 id="JavaScript-Kurulum" class="py-3">JavaScript Kurulumu</h3>
+                    <p>JavaScript'in kendisi için kurulum gerekmez. JavaScript tarayıcılar tarafından
+                        çalıştırılan programlama dili olduğundan sistem (komut istemi) üzerinden çalıştırmak için
+                        Node.JS kurulumu gerekmektedir. 2025 Nisan tarihi itibari ile mevcut Node.Js LTS (Long Term
+                        Support) <b>v22.14.0</b> sürümüdür.
+                    </p>
+
+                    <p>Node.js buradan indirebilirsiniz. <a href="https://nodejs.org/en" target="_blank">Node.js</a></p>
+                    <p>Node.js kurulumu Windows için basittir. Dosya indirildikten sonra dosyayı çalıştırmanız ve
+                        yükleyici de açıklanan adımları takip etmeniz yeterlidir.</p>
+
+
+
+                    <h3 id="Kurulum-Sonrası">Kurulum Sonrası</h3>
+
+                    <p>Node.js kurulumunu başarılı şekilde tamamlandıysa <b>Komut istemi (CMD) veya klavye kısayolu</b>
+                        <kbd>win</kbd> + <kbd>r</kbd> <kbd>cmd</kbd> açılan ekrana <kbd>node -v</kbd> yazın. Versiyon
+                        numarası yazıyorsa kurulum tamamlanmıştır.
+                    </p>
+
+                    <pre class="rounded block line-numbers"><code class="language-bash ">v22.13.0</code></pre>
+
+
+                    <h3 id="Node-Js-Test-Etme">Node Js Test Etme</h3>
+                    <p>Node.Js kurulumu tamamlandıktan sonra Node.js çalıtırmak ve test etmek için masaüstüne veya
+                        istediğiniz herhangi bir dizine <kbd>test</kbd> klasörü oluşturup klasörün içine
+                        <kbd>app.js</kbd> dosyası oluşturup bu dosyaya şu kodu yazılmalı.
+                    </p>
+
+                    <pre
+                        class="rounded block line-numbers"><code class="language-javascript ">console.log("Node.js başarıyla yüklendi. Bu kod Node.js aracılığıyla çalıştırıldı")</code></pre>
+
+                    <p>Dosya bulunduğu konum doğru belirtildiyse konsolda çıktı verecektir ve çıtkı şu şekilde
+                        olacaktır. </p>
+
+                    <pre
+                        class="rounded block line-numbers"><code class="language-javascript ">Node.js başarıyla yüklendi. Bu kod Node.js aracılığıyla çalıştırıldı</code></pre>
+
+                    <h3 id="Kod-Editör-Kullanımı" class="py-2">Kod Editörü</h3>
+                    <p>JavaScript tarayıcılarda çalışan programlama dili olduğundan tarayıcı üzerinden çalıştırılabilir
+                        ama hata kontrolü, büyük projelerde yetersiz kalacaktır. Daha doğru ve gelişmiş kod yazmak için
+                        kod editörü kullanılması daha iyi olabilir. JavaScript (Web programlama) için bazı editörler
+                        kullanılabilir istediğinizi kullanabilirsiniz. Bunlar;</p>
+
+                    <ul class="code-editor-list">
+                        <li>Visual Studio Code (VS Code)</li>
+                        <li>Sublime Text</li>
+                        <li>Notepad ++</li>
+                        <li>WebStorm</li>
+                        <li>Atom</li>
+                    </ul>
+
+                    <img class="rounded shadow img-fluid my-4" src="./nvm-kurulum-windows.jpg"
+                        alt="Windows'a NVM kurulumu" />
+
+                    <p class="text-center text-muted">Windows üzerinde NVM kurulumu.</p>
+
+                    <h3 id="NVM-Kurulumu" class="py-3">NVM Kurulumu Daha mı İyi ?</h3>
+
+                    <p>NVM (Node Version Manager) birden fazla Node.Js sürümü kurmayı ve yönetmektedir. Node.Js kurulumu
+                        Normal kurulum ziyade biraz uğraştırıcı ama sürüm yükseltme, düşürme, konusunda kolaylık
+                        sağlamaktadır. NVM ile Node.js kurmak için bu adımlar yapılmalıdır;</p>
+
+                    <h5 class="pb-2" id="Gerekli-Dosya-İndirilmesi">1. Gerekli Dosya İndirilmesi</h5>
+
+                    <p class="pb-4">Bu link üzerinden <a href="https://github.com/coreybutler/nvm-windows/releases"
+                            target="_blank">nvm-windows</a> gerekli dosyayı indirmeniz ve çalıştırmanız gereklidir.</p>
+
+                    <h5 class="pb-2" id="NVM-Kontrolü-ve-Node.Js-Kurulumu">2. NVM Kontrolü ve Node.Js Kurulumu</h5>
+                    <p>İndirilen dosyayı çalıştırdıktan sonra NVM kurulumunu doğrulamak için komut istemine Aşağıda
+                        verilen kod yazılıp kontrol edilmeli. Versiyon numarası yazıyorsa NVM bilgisayarınıza kurulmuş
+                        olup NVM üzerinden Node.Js kurulumu yapabilirsiniz. NVM komutlarına <a
+                            href="https://github.com/coreybutler/nvm-windows" target="_blank">buradan</a>
+                        ulaşabilirsiniz.</p>
+
+
+                    <pre class="rounded block line-numbers"><code class="language-bash ">nvm -v</code></pre>
+
+                    <h3 id="Paket-Yönetim-Sistemi" class="py-3">Paket Yönetim Sistemi</h3>
+
+                    <img class="rounded img-fluid shadow my-4 w-100" src="./nyp.webp"
+                        alt="JavaScript için NPM, Yarn ve PNPM paket yönetim sistemleri karşılaştırması" />
+
+
+                    <p class="text-center text-muted">NPM, Yarn ve PNPM paket yönetim sistemlerinin karşılaştırılması.
+                    </p>
+
+                    <p>Paket Yönetim Sistemi, yazılım paketlerinin ve kütüphanelerinin konfigürasyonunu sağlar.
+                        JavaScript için paket yönetim sistemi başlıca NPM <b><i>(Node.js kurulumu esnasında varsayılan
+                                olarak NPM kurulur), yarn ve PNPM'dir</i></b>.</p>
+
+                    <h5 id="NPM">NPM (Node Packaage Manager)</h5>
+
+                    <p>NPM (Node Package Module) kısaltılmasıdır. Javascript için geliştirilmiş ve Node.js’in standart
+                        kabul ettiği paket yönetim sistemidir. NPM 2009 yılında oluşturulmuş, 12 Ocak 2010 yılında
+                        piyasaya sürülmüştür. Isaac Z. Schlueter tarafından yazılmıştır. NPM, Github tarafından satın
+                        alınmıştır. </p>
+
+                    <h5 id="Yarn">Yarn</h5>
+
+                    <p>Yarn, Meta Inc(Facebook), Exponent, Google ve Tilde işbirliği sonucu Sebastian McKenzie
+                        tarafından Javascript için geliştirilmiş ve NPM paket yöneticisinin alternatifidir. Yarn önemli
+                        kılan özelliği NPM, kıyasla daha hızlı performans, bellek tasarrufu ve güvenlik sağlamasıdır.
+                    </p>
+
+                    <h5 id="PNPM">PNPM</h5>
+
+                    <p>Performant NPM olarak adlandırılan PNPM, yarn ve NPM tüm özelliklerine sahip ve performanslı olan
+                        paket yönetim sistemidir. PNPM, versiyon 1 2017 yılında Zoltan Kochan tarafından yayınlandı.
+                        PNPM’yi Yarn ve NPM’den ayıran özelliği bir paket yönetildikten sonra önbelleğe alır. Sonraki
+                        projelerde kullanılacaksa yerelden çekilir böylece NPM üzerinden dosyayı tekrar indirmeye ve
+                        bellek harcamasına gerek kalmayacaktır.</p>
+
+                </div>
+
+                <h3 id="Kaynakça">Kaynakça</h3>
+                <ul>
+                    <li><a href="https://melihkaratas.medium.com/npm-yarn-ve-pnpm-nedir-d92b39bd4e26"
+                            target="_blank">https://melihkaratas.medium.com/npm-yarn-ve-pnpm-nedir-d92b39bd4e26</a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <button class="scroll-top-btn" id="scroll-btn">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+
+    <footer class="w-100 bg-primary">
+        <div class="container">
+            <div class="row ">
+                <div class="col d-flex justify-content-center align-items-center">
+                    <p class="copyright my-2 text-white">Copyright 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="offline" class="offline-overlay">
+        <div class="offline-container">
+            <h3>İnternet Bağlantısında sorun var 😕</h3>
+            <p>Lütfen bağlantınızı kontrol edin.</p>
+            <button onclick="location.reload()" class="retry-btn">Tekrar Dene</button>
+        </div>
+    </div>
+
+    <div id="online-notification" class="online-notification">
+        🔄 Bağlantı geri geldi!
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/show-language/prism-show-language.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            Prism.highlightAll();
+        });
+    </script>
+
+    <script src="../main.js"></script>
+
+
+</body>
+
+</html>

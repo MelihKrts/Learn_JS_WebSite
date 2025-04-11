@@ -1,0 +1,705 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@font-face {
+    font-family: "ProximaNova";
+    src: url("../font/ProximaNova-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "ProximaNovaSemiBold";
+    src: url("../font/ProximaNova-Semibold.otf") format("opentype");
+}
+
+
+* {
+    outline: none;
+    border: none;
+}
+
+.header-bg {
+    background-color: #F0DB4F;
+    z-index: 100 !important;
+}
+
+a {
+    text-decoration: none !important;
+    transition: all 0.4s ease-in;
+    word-wrap: break-word;
+}
+
+/* .content-bg {
+    background-color: #FFFBEA
+} */
+
+.toc-bg {
+    background-color: #e3f2fd;
+}
+
+.title-bg {
+    background-color: #fbfbfb;
+}
+
+.subject-title-space {
+    padding-top: 66px;
+}
+
+.custom-div {
+    background: #d4edda;
+}
+
+.pt-6 {
+    padding-top: 4rem;
+}
+
+.pt-8 {
+    padding-top: 6rem;
+}
+
+.copyright {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.z-index-damn {
+    z-index: 10;
+}
+
+body {
+    position: relative;
+    font-family: "Exo";
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    /* background-color: #fffbea; */
+    color: #212529;
+}
+
+body.dark {
+    background-color: #252525;
+    color: #ffffff;
+}
+
+html {
+    height: 100%;
+}
+
+ul,
+ol {
+    padding-left: 0.5rem;
+}
+
+li {
+    list-style: none;
+    padding: 5px 0;
+    list-style-position: inside;
+}
+
+.breadcrumb-item a {
+    color: #777;
+}
+
+.breadcrumb-item a:hover {
+    color: #ff0000;
+}
+
+
+.breadcrumb {
+    padding: 0px 20px;
+    margin: 0;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: '>';
+}
+
+.dark-mode .breadcrumb-item+.breadcrumb-item::before {
+    color: #ffffff;
+}
+
+.title {
+    font-family: "ProximaNova";
+    font-size: 1.5rem;
+    padding: 15px 0px 0px 10px;
+    vertical-align: middle;
+    font-weight: 600;
+}
+
+.scroll-top-btn {
+    width: 50px;
+    height: 50px;
+    background-color: #1fc1c8;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    color: #fff;
+    font-size: 25px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 100;
+}
+
+
+
+.dark-mode {
+    background-color: #212529 !important;
+    color: #ffffff !important;
+}
+
+.dark-mode.navbar {
+    background-color: #2b2b2b !important;
+}
+
+.navbar-brand {
+    transition: color 0.4s ease;
+}
+
+.dark-mode .navbar-brand {
+    color: #ffffff !important;
+}
+
+.navbar-nav .nav-link {
+    transition: color 0.4s ease;
+}
+
+.dark-mode .navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+/* Navbar linkleri */
+.dark-mode .nav-link {
+    color: #ffffff !important;
+}
+
+.dark header,
+.dark nav,
+.dark footer,
+.dark .title-bg,
+.dark section,
+.dark .breadcrumb {
+    background-color: #111;
+    /* Daha koyu bir renk */
+    color: #fff;
+}
+
+.light {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Offline ekran */
+.offline-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 9999;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+
+.offline-container {
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.retry-btn {
+    background: #ff4757;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.retry-btn:hover {
+    background: #e84118;
+}
+
+/* Görünürlük sağlama */
+.offline-overlay.show {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Online bildirim */
+.online-notification {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.4s ease;
+}
+
+.online-notification.show {
+    display: block;
+    opacity: 1;
+}
+
+
+/* theme button style */
+
+#theme {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#theme {
+    background: linear-gradient(135deg, #ffcf71, #ff9f1c);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Koyu tema butonu */
+body.dark #theme {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+#breadcrumb {
+    background-color: #fbfbfb;
+    border-radius: 5px;
+}
+
+/* Koyu Mod için */
+.dark-mode #breadcrumb {
+    background-color: #2b2b2b;
+    color: #ffffff;
+}
+
+/* Breadcrumb Yazıları */
+.breadcrumb-item {
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+/* Açık Mod Breadcrumb Linkleri */
+.breadcrumb-item a {
+    color: #212529;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Koyu Mod Breadcrumb Linkleri */
+.dark-mode .breadcrumb-item a {
+    color: #FFD700 !important;
+    /* Altın Sarısı */
+}
+
+/* Breadcrumb İçindeki Aktif Sayfa */
+.breadcrumb-item.active {
+    color: #6c757d;
+    /* Açık Modda Hafif Gri */
+}
+
+/* Koyu Mod Aktif Sayfa */
+.dark-mode .breadcrumb-item.active {
+    color: #dddddd;
+}
+
+/* Breadcrumb İçindeki Home İkonu */
+.breadcrumb-item i {
+    transition: color 0.3s ease;
+}
+
+/* Koyu Mod İçin Home İkonu */
+.dark-mode .breadcrumb-item i {
+    color: #FFD700;
+    /* Altın Rengi */
+}
+
+.dark .navbar-toggler-icon {
+    filter: invert(1);
+    /* Renkleri ters çevirerek beyaza döndürür */
+}
+
+.dark #output {
+    background-color: #333 !important;
+    color: white !important;
+}
+
+#editor-container {
+    margin-top: 2rem;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    height: 380px;
+}
+
+#output {
+    min-height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+
+.dark .toc-bg {
+    background-color: #0d47a1;
+    /* Karanlık modda koyu mavi arka plan */
+    color: #ffffff;
+}
+
+
+.dark .toc-bg a {
+    color: #ffffff
+}
+
+p {
+    text-align: left;
+    padding:.50rem 0 !important
+}
+
+:target {
+    scroll-margin-top: 80px;
+    /* 80px yukarıda boşluk bırak */
+}
+
+.code-editor-list li {
+    list-style: disc;
+    list-style-position: inside;
+}
+
+/* code[class*=language-],
+pre[class*=language-] {
+    text-shadow: none !important;
+    word-wrap: break-word;
+    margin-bottom: 2.8rem !important;
+    white-space: pre-wrap !important;
+
+	word-spacing: normal;
+	word-break: normal;
+	word-break: normal;
+	word-wrap: break-word !important;
+} */
+
+code[class*=language-],
+pre[class*=language-] {
+    text-shadow: none !important;
+    margin-bottom: 2.8rem !important;
+
+    /* Satır kaydırma için gerekli ayarlar */
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+
+    /* Tarayıcı uyumluluğu için */
+    overflow-x: auto;
+    /* Eğer satır uzunluğu fazla ise yatay scroll ekle */
+}
+
+
+/* .sub-list {
+    padding-left: 20px;
+}
+
+.sub-list::before{
+    width: 3px;
+    height: 3px;
+    background-color: red;
+    content: '';
+} */
+
+/* Ana liste */
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Ana liste elemanları */
+.toc-list>li {
+    position: relative;
+    padding: 10px 0 10px 20px;
+    border-left: 3px solid #dc3545;
+    transition: border-color 0.3s;
+}
+
+/* Hover border rengi */
+.toc-list>li:hover {
+    border-left-color: #ff6b6b;
+}
+
+/* Bağlantı stili */
+.toc-list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+/* Hover bağlantı */
+.toc-list a:hover {
+    color: #dc3545;
+}
+
+/* Alt liste */
+.sub-list {
+    list-style: none;
+    padding-left: 20px;
+    margin: 5px 0;
+}
+
+/* Alt liste öğeleri */
+.sub-list li {
+    position: relative;
+    padding: 5px 0 5px 15px;
+    margin: 2px 0;
+}
+
+/* Before çizgisi */
+.sub-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 16px;
+    background-color: #6c757d;
+    border-radius: 1px;
+}
+
+/* Daha içteki alt liste (derinlik için stil) */
+.sub-list .sub-list li::before {
+    width: 1.5px;
+    height: 14px;
+    background-color: #868e96;
+}
+
+/* Bağlantılar */
+.sub-list a {
+    color: #555;
+    font-weight: 400;
+    font-size: 0.95em;
+}
+
+.sub-list .sub-list a {
+    font-size: 0.9em;
+}
+
+/* Hover arka plan efekti */
+.toc-list li:hover,
+.sub-list li:hover {
+    background-color: rgba(220, 53, 69, 0.05);
+}
+
+/* Hover bağlantı rengi */
+.sub-list a:hover {
+    color: #dc3545;
+}
+
+/* ======================== */
+/*        DARK MODE        */
+/* ======================== */
+
+.dark .toc-list>li {
+    border-left-color: #ff6b6b;
+}
+
+.dark .toc-list a,
+.dark .sub-list a {
+    color: #eee;
+}
+
+.dark .sub-list li::before {
+    background-color: #bbb;
+}
+
+.dark .sub-list .sub-list li::before {
+    background-color: #999;
+}
+
+.dark .toc-list li:hover,
+.dark .sub-list li:hover {
+    background-color: rgba(255, 107, 107, 0.08);
+}
+
+.dark .toc-list a:hover,
+.dark .sub-list a:hover {
+    color: #ff6b6b;
+}
+
+
+.token.operator {
+    background: none !important;
+}
+
+.copy-to-clipboard-button {
+    background-color: yellow !important;
+    padding: 5px !important;
+    border-radius: 0.5rem !important;
+    margin: 5px 5px !important;
+}
+
+/* Açık mod (default Bootstrap uyumu) */
+.alert-warning-custom {
+    background-color: #fff3cd;
+    color: #664d03;
+    transition: background-color 0.3s, color 0.3s;
+    border-left: 5px solid #ffc107;
+}
+
+/* Koyu mod için */
+body.dark .alert-warning-custom {
+    background-color: #3a2f00;
+    color: #ffe58f;
+    border-left: 5px solid #ffc107;
+}
+
+.dark .alert-info-custom {
+    background-color: #1e293b;
+    color: #bfdbfe;
+    border-left: 4px solid #3b82f6;
+}
+
+.alert-info-custom {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    border-left: 4px solid #2196f3;
+}
+
+.code-editor-list {
+    margin-bottom: 2rem;
+}
+
+
+/* Hover olduğunda sol kenar rengi değişecek */
+
+#table-of-contents {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    /* padding: 1rem; */
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#table-of-contents h3 {
+    margin-top: 0;
+    padding-bottom: 0.5rem;
+    color: #212529;
+}
+
+/* Liste stillerini sıfırlayalım */
+#table-of-contents ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+/* İç içe listeler için girintileme ekleyelim */
+#table-of-contents ul ul {
+    padding-left: 1.5rem;
+}
+
+/* Tüm liste öğeleri için stil */
+#table-of-contents li {
+    margin: 2px 0;
+}
+
+/* Tüm bağlantılar için ortak stiller */
+#table-of-contents a {
+    display: block;
+    padding: 4px 8px;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+    color: #495057;
+}
+
+/* H3 başlıklarının bağlantıları için stil */
+#table-of-contents a[data-level="3"] {
+    font-weight: 600;
+    color: #0d6efd;
+    border-left-color: #dee2e6;
+}
+
+/* H4 başlıklarının bağlantıları için stil */
+#table-of-contents a[data-level="4"] {
+    font-weight: 500;
+    color: #495057;
+    border-left-color: #e9ecef;
+}
+
+/* H5 başlıklarının bağlantıları için stil */
+#table-of-contents a[data-level="5"] {
+    font-weight: normal;
+    color: #6c757d;
+    font-size: 0.95em;
+    border-left-color: #f1f3f5;
+}
+
+/* Hover durumu için stil */
+#table-of-contents a:hover {
+    border-left-color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.05);
+    color: #0a58ca;
+    transform: translateX(2px);
+}
+
+/* Aktif bağlantı için stil */
+#table-of-contents a.active-link {
+    border-left-color: #0a58ca;
+    background-color: rgba(13, 110, 253, 0.08);
+    color: #0a58ca;
+    font-weight: bold;
+}
+
+#table-of-contents ul>li {
+    padding: 3px 0;
+}
+
+.toc-title {
+    border: 1px solid #e5e5e5;
+    padding: 0;
+    margin: 0;
+    border-radius: .625rem .625rem 0 0;
+}
+
+
