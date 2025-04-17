@@ -95,7 +95,9 @@
             <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
                 <p class="text-start py-2 my-0">
-                  Bilgisayar ve Programlama Bilimleri İngilizce'dir. Bu websitesi Türkçe ile hazırlansa bile programlamada yabancı dil kullanımı, evrensellik, kod anlaşılırlığı için İngilizce terimler kullanılmıştır.
+                  Bilgisayar ve Programlama Bilimleri İngilizce'dir. Bu websitesi Türkçe ile hazırlansa bile
+                  programlamada yabancı dil kullanımı, evrensellik, kod anlaşılırlığı için İngilizce terimler
+                  kullanılmıştır.
                 </p>
               </div>
             </div>
@@ -118,6 +120,30 @@
             </div>
           </div>
         </div>
+
+        <div class="d-flex gap-2 mt-4 items-center justify-content-center">
+          <a href="konular.html" class="btn btn-action">Konular</a>
+          <button class="btn-action btn" id="install-app" style="display: none;">Uygulamayı Yükle</button>
+        </div>
+
+
+        <script>
+          const installButton = document.getElementById("install-app")
+          let beforeInstallPromptEvent
+          window.addEventListener("beforeinstallprompt", function (e) {
+            e.preventDefault()
+            beforeInstallPromptEvent = e
+            installButton.style.display = "block"
+            installButton.addEventListener("click", function () {
+              e.prompt()
+            })
+            installButton.hidden = false
+          })
+          installButton.addEventListener("click", function () {
+            beforeInstallPromptEvent.prompt()
+          })
+        </script>
+
       </div>
 
     </div>
@@ -141,7 +167,7 @@
 
   <div id="offline" class="offline-overlay">
     <div class="offline-container">
-      <h3>İnternet Bağlantısında sorun var  😕</h3>
+      <h3>İnternet Bağlantısında sorun var 😕</h3>
       <p>Lütfen bağlantınızı kontrol edin.</p>
       <button onclick="location.reload()" class="retry-btn">Tekrar Dene</button>
     </div>
@@ -157,8 +183,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-  <script src="./main.js"></script>
-
+    <script type="module" src="js/main.js"></script>
 
 </body>
 

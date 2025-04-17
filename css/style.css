@@ -11,15 +11,25 @@
     src: url("../font/ProximaNova-Semibold.otf") format("opentype");
 }
 
-
 * {
     outline: none;
     border: none;
 }
 
-.header-bg {
-    background-color: #F0DB4F;
-    z-index: 100 !important;
+img {
+    transition: transform 0.2s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+body {
+    position: relative;
+    font-family: "Exo";
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* background-color: #fffbea; */
+    color: #212529;
 }
 
 a {
@@ -28,58 +38,6 @@ a {
     word-wrap: break-word;
 }
 
-/* .content-bg {
-    background-color: #FFFBEA
-} */
-
-.toc-bg {
-    background-color: #e3f2fd;
-}
-
-.title-bg {
-    background-color: #fbfbfb;
-}
-
-.subject-title-space {
-    padding-top: 66px;
-}
-
-.custom-div {
-    background: #d4edda;
-}
-
-.pt-6 {
-    padding-top: 4rem;
-}
-
-.pt-8 {
-    padding-top: 6rem;
-}
-
-.copyright {
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.z-index-damn {
-    z-index: 10;
-}
-
-body {
-    position: relative;
-    font-family: "Exo";
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body {
-    /* background-color: #fffbea; */
-    color: #212529;
-}
-
-body.dark {
-    background-color: #252525;
-    color: #ffffff;
-}
 
 html {
     height: 100%;
@@ -96,6 +54,107 @@ li {
     list-style-position: inside;
 }
 
+p {
+    text-align: left;
+    /* padding: .50rem 0 !important; */
+    padding-top: 0rem;
+    padding-bottom: 1rem;
+}
+
+/* ----------------------------------------------- */
+
+
+
+/* Header, Navbar Style */
+
+.header-bg {
+    background-color: #F0DB4F;
+    z-index: 100 !important;
+}
+
+/* Header Navbar Style End */
+
+
+/* ----------------------------------------- */
+
+
+/* Heading Style */
+
+.section-heading {
+    border-bottom: 1px solid var(--bs-border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.heading{
+    display: flex;
+    align-items: center;
+}
+
+
+.sub-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 1.5rem 0;
+    border-left: 4px solid #0d6efd;
+    padding-left: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.heading-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #32445a;
+    transition: color 0.3s ease;
+    width: 100%;
+}
+
+h2 .heading-link i {
+    font-size: 1.5rem; /* H2 için daha büyük bir ikon boyutu */
+}
+
+.heading-link i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+    font-size: 0.9rem; 
+    line-height: 1;
+    opacity: 0.3;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.dark .sub-heading {
+    color: #ddd;
+    border-left-color: #66b2ff;
+}
+
+.heading-link:hover i {
+    transform: scale(1.1);
+}
+
+.navbar-brand {
+    transition: color 0.4s ease;
+}
+
+
+.navbar-nav .nav-link {
+    transition: color 0.4s ease;
+}
+
+/* Heading Style End */
+
+
+/* ------------------------------------------------------------------------ */
+
+
+
+/* Breadcrumb style */
+
+
 .breadcrumb-item a {
     color: #777;
 }
@@ -103,7 +162,6 @@ li {
 .breadcrumb-item a:hover {
     color: #ff0000;
 }
-
 
 .breadcrumb {
     padding: 0px 20px;
@@ -114,8 +172,30 @@ li {
     content: '>';
 }
 
-.dark-mode .breadcrumb-item+.breadcrumb-item::before {
-    color: #ffffff;
+#breadcrumb {
+    background-color: #fbfbfb;
+    border-radius: 5px;
+}
+
+
+.breadcrumb-item {
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item a {
+    color: #212529;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d;
+}
+
+
+.breadcrumb-item i {
+    transition: color 0.3s ease;
 }
 
 .title {
@@ -126,74 +206,19 @@ li {
     font-weight: 600;
 }
 
-.scroll-top-btn {
-    width: 50px;
-    height: 50px;
-    background-color: #1fc1c8;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 50px;
-    right: 20px;
-    color: #fff;
-    font-size: 25px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 100;
+.title-bg {
+    background-color: #fbfbfb;
 }
 
 
+/* Breadcrumb style end */
 
-.dark-mode {
-    background-color: #212529 !important;
-    color: #ffffff !important;
-}
 
-.dark-mode.navbar {
-    background-color: #2b2b2b !important;
-}
 
-.navbar-brand {
-    transition: color 0.4s ease;
-}
+/* ------------------------------------- */
 
-.dark-mode .navbar-brand {
-    color: #ffffff !important;
-}
+/* Connection Style */
 
-.navbar-nav .nav-link {
-    transition: color 0.4s ease;
-}
-
-.dark-mode .navbar-nav .nav-link {
-    color: #ffffff !important;
-}
-
-/* Navbar linkleri */
-.dark-mode .nav-link {
-    color: #ffffff !important;
-}
-
-.dark header,
-.dark nav,
-.dark footer,
-.dark .title-bg,
-.dark section,
-.dark .breadcrumb {
-    background-color: #111;
-    /* Daha koyu bir renk */
-    color: #fff;
-}
-
-.light {
-    background-color: #fff;
-    color: #000;
-}
-
-/* Offline ekran */
 .offline-overlay {
     display: none;
     position: fixed;
@@ -214,7 +239,6 @@ li {
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-
 .offline-container {
     padding: 20px 30px;
     background: rgba(255, 255, 255, 0.1);
@@ -224,7 +248,6 @@ li {
     max-width: 400px;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 
 .retry-btn {
     background: #ff4757;
@@ -242,7 +265,6 @@ li {
     background: #e84118;
 }
 
-/* Görünürlük sağlama */
 .offline-overlay.show {
     display: flex;
     opacity: 1;
@@ -270,8 +292,13 @@ li {
     opacity: 1;
 }
 
+/* Connection Style End */
 
-/* theme button style */
+
+
+/* ------------------------------------- */
+
+/* Theme Button Style */
 
 #theme {
     padding: 10px 20px;
@@ -284,16 +311,22 @@ li {
     display: flex;
     align-items: center;
     gap: 8px;
-}
-
-#theme {
     background: linear-gradient(135deg, #ffcf71, #ff9f1c);
     color: #ffffff;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Koyu tema butonu */
+
+
+/* Theme Button Style End */
+
+
+
+/* ------------------------------------ */
+
+/* Dark Mode Style */
+
 body.dark #theme {
     background: linear-gradient(135deg, #6a11cb, #2575fc);
     color: #ffffff;
@@ -301,242 +334,82 @@ body.dark #theme {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-
-#breadcrumb {
-    background-color: #fbfbfb;
-    border-radius: 5px;
+.dark-mode {
+    background-color: #212529 !important;
+    color: #ffffff !important;
 }
 
-/* Koyu Mod için */
+.dark-mode.navbar {
+    background-color: #2b2b2b !important;
+}
+
+.dark-mode .navbar-brand {
+    color: #ffffff !important;
+}
+
+.dark-mode .navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+/* Navbar linkleri */
+.dark-mode .nav-link {
+    color: #ffffff !important;
+}
+
+.dark header,
+.dark nav,
+.dark footer,
+.dark .title-bg,
+.dark section,
+.dark .breadcrumb {
+    background-color: #111;
+    /* Daha koyu bir renk */
+    color: #fff;
+}
+
+body.dark {
+    background-color: #252525;
+    color: #ffffff;
+}
+
+.dark .heading-link {
+    color: #fff;
+}
+
+.dark .heading-link i {
+    color: #fff;
+    opacity: 1;
+}
+
 .dark-mode #breadcrumb {
     background-color: #2b2b2b;
     color: #ffffff;
 }
 
-/* Breadcrumb Yazıları */
-.breadcrumb-item {
-    font-size: 14px;
-    transition: color 0.3s ease;
+.dark-mode .breadcrumb-item+.breadcrumb-item::before {
+    color: #ffffff;
 }
 
-/* Açık Mod Breadcrumb Linkleri */
-.breadcrumb-item a {
-    color: #212529;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-/* Koyu Mod Breadcrumb Linkleri */
 .dark-mode .breadcrumb-item a {
     color: #FFD700 !important;
-    /* Altın Sarısı */
 }
 
-/* Breadcrumb İçindeki Aktif Sayfa */
-.breadcrumb-item.active {
-    color: #6c757d;
-    /* Açık Modda Hafif Gri */
-}
-
-/* Koyu Mod Aktif Sayfa */
 .dark-mode .breadcrumb-item.active {
     color: #dddddd;
 }
 
-/* Breadcrumb İçindeki Home İkonu */
-.breadcrumb-item i {
-    transition: color 0.3s ease;
-}
-
-/* Koyu Mod İçin Home İkonu */
 .dark-mode .breadcrumb-item i {
     color: #FFD700;
-    /* Altın Rengi */
 }
 
 .dark .navbar-toggler-icon {
     filter: invert(1);
-    /* Renkleri ters çevirerek beyaza döndürür */
 }
 
 .dark #output {
     background-color: #333 !important;
     color: white !important;
 }
-
-#editor-container {
-    margin-top: 2rem;
-    border-radius: 0.3rem;
-    overflow: hidden;
-    height: 380px;
-}
-
-#output {
-    min-height: 100px;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-}
-
-
-.dark .toc-bg {
-    background-color: #0d47a1;
-    /* Karanlık modda koyu mavi arka plan */
-    color: #ffffff;
-}
-
-
-.dark .toc-bg a {
-    color: #ffffff
-}
-
-p {
-    text-align: left;
-    padding:.50rem 0 !important
-}
-
-:target {
-    scroll-margin-top: 80px;
-    /* 80px yukarıda boşluk bırak */
-}
-
-.code-editor-list li {
-    list-style: disc;
-    list-style-position: inside;
-}
-
-/* code[class*=language-],
-pre[class*=language-] {
-    text-shadow: none !important;
-    word-wrap: break-word;
-    margin-bottom: 2.8rem !important;
-    white-space: pre-wrap !important;
-
-	word-spacing: normal;
-	word-break: normal;
-	word-break: normal;
-	word-wrap: break-word !important;
-} */
-
-code[class*=language-],
-pre[class*=language-] {
-    text-shadow: none !important;
-    margin-bottom: 2.8rem !important;
-
-    /* Satır kaydırma için gerekli ayarlar */
-    white-space: pre-wrap !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-    word-break: break-word !important;
-
-    /* Tarayıcı uyumluluğu için */
-    overflow-x: auto;
-    /* Eğer satır uzunluğu fazla ise yatay scroll ekle */
-}
-
-
-/* .sub-list {
-    padding-left: 20px;
-}
-
-.sub-list::before{
-    width: 3px;
-    height: 3px;
-    background-color: red;
-    content: '';
-} */
-
-/* Ana liste */
-.toc-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Ana liste elemanları */
-.toc-list>li {
-    position: relative;
-    padding: 10px 0 10px 20px;
-    border-left: 3px solid #dc3545;
-    transition: border-color 0.3s;
-}
-
-/* Hover border rengi */
-.toc-list>li:hover {
-    border-left-color: #ff6b6b;
-}
-
-/* Bağlantı stili */
-.toc-list a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-/* Hover bağlantı */
-.toc-list a:hover {
-    color: #dc3545;
-}
-
-/* Alt liste */
-.sub-list {
-    list-style: none;
-    padding-left: 20px;
-    margin: 5px 0;
-}
-
-/* Alt liste öğeleri */
-.sub-list li {
-    position: relative;
-    padding: 5px 0 5px 15px;
-    margin: 2px 0;
-}
-
-/* Before çizgisi */
-.sub-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2px;
-    height: 16px;
-    background-color: #6c757d;
-    border-radius: 1px;
-}
-
-/* Daha içteki alt liste (derinlik için stil) */
-.sub-list .sub-list li::before {
-    width: 1.5px;
-    height: 14px;
-    background-color: #868e96;
-}
-
-/* Bağlantılar */
-.sub-list a {
-    color: #555;
-    font-weight: 400;
-    font-size: 0.95em;
-}
-
-.sub-list .sub-list a {
-    font-size: 0.9em;
-}
-
-/* Hover arka plan efekti */
-.toc-list li:hover,
-.sub-list li:hover {
-    background-color: rgba(220, 53, 69, 0.05);
-}
-
-/* Hover bağlantı rengi */
-.sub-list a:hover {
-    color: #dc3545;
-}
-
-/* ======================== */
-/*        DARK MODE        */
-/* ======================== */
 
 .dark .toc-list>li {
     border-left-color: #ff6b6b;
@@ -565,27 +438,6 @@ pre[class*=language-] {
     color: #ff6b6b;
 }
 
-
-.token.operator {
-    background: none !important;
-}
-
-.copy-to-clipboard-button {
-    background-color: yellow !important;
-    padding: 5px !important;
-    border-radius: 0.5rem !important;
-    margin: 5px 5px !important;
-}
-
-/* Açık mod (default Bootstrap uyumu) */
-.alert-warning-custom {
-    background-color: #fff3cd;
-    color: #664d03;
-    transition: background-color 0.3s, color 0.3s;
-    border-left: 5px solid #ffc107;
-}
-
-/* Koyu mod için */
 body.dark .alert-warning-custom {
     background-color: #3a2f00;
     color: #ffe58f;
@@ -598,18 +450,211 @@ body.dark .alert-warning-custom {
     border-left: 4px solid #3b82f6;
 }
 
-.alert-info-custom {
-    background-color: #e3f2fd;
-    color: #0d47a1;
-    border-left: 4px solid #2196f3;
+.dark kbd {
+    background-color: #fff;
+    color: #000;
+}
+
+.dark code {
+    color: #50fa7b;
+}
+
+.dark .toc-bg {
+    background-color: #0d47a1;
+    color: #ffffff;
+}
+
+.dark .toc-bg a {
+    color: #ffffff
+}
+
+.dark .heading a {
+    color: #fff;
+}
+
+.dark .heading i {
+    color: #fff;
+    opacity: 1;
+}
+
+.dark .btn-action {
+    background-color: #fff;
+    color: #000;
+}
+
+
+/* Dark Mode Style End */
+
+/* ---------------------------------- */
+
+
+/* Copyright text footer */
+
+.copyright {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0;
+}
+
+/* Copyright text end style */
+
+
+
+/* ----------------------------------------- */
+
+
+
+/* Scroll top btn */
+
+.scroll-top-btn {
+    width: 50px;
+    height: 50px;
+    background-color: #1fc1c8;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    color: #fff;
+    font-size: 25px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 100;
+}
+
+/* Scroll top-btn end */
+
+
+/* ------------------------------------------- */
+
+/* Aside style */
+
+aside .menu-links .nav-item .nav-link {
+    display: block;
+    padding: 6px 0;
+    color: #212529 !important;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+aside .menu-links .nav-item .nav-link:hover {
+    padding-left: 6px;
+    color: #0d6efd !important;
+}
+
+.menu-links .nav-link {
+    color: #007bff !important;
+    /* Burada istediğiniz rengi kullanabilirsiniz */
+}
+
+.menu-links .nav-link:hover {
+    color: #0056b3 !important;
+    /* Hover efekti için renk */
+}
+
+.sticky-sidebar {
+    position: sticky;
+    max-height: calc(100vh - 100px);
+    border-radius: 0.375rem;
+    overflow: auto;
+    top: 90px;
+    background-color: #fff9db;
+    padding: 0.75rem 1rem;
+}
+
+aside .sticky-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+aside .sticky-sidebar::-webkit-scrollbar-thumb {
+    background-color: #ffc107;
+    border-radius: 10px;
+}
+
+/* Aside style end */
+
+
+
+/* -------------------------------------- */
+
+
+/* Action btn (index.html) */
+
+.btn-action {
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-action:hover {
+    transform: scale(1.05);
+}
+
+/* Action btn style ended */
+
+
+
+/* ----------------------------------- */
+
+
+/* Code Editor Styling */
+
+#output {
+    min-height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+#editor-container {
+    margin-top: 2rem;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    height: 380px;
+}
+
+/* Code Editor Styling ended */
+
+
+
+/* --------------------------- */
+
+
+/* Padding Z-index subject */
+
+.pt-6 {
+    padding-top: 4rem;
+}
+
+.pt-8 {
+    padding-top: 6rem;
+}
+
+.z-index-damn {
+    z-index: 10;
+}
+
+.subject-title-space {
+    padding-top: 66px;
 }
 
 .code-editor-list {
     margin-bottom: 2rem;
 }
 
+/* Padding style end */
 
-/* Hover olduğunda sol kenar rengi değişecek */
+
+
+/* ---------------------------- */
+
+
+/* Table of Contents style */
 
 #table-of-contents {
     background-color: #f8f9fa;
@@ -626,24 +671,16 @@ body.dark .alert-warning-custom {
     color: #212529;
 }
 
-/* Liste stillerini sıfırlayalım */
 #table-of-contents ul {
     list-style-type: none;
     padding-left: 0;
     margin-bottom: 0;
 }
 
-/* İç içe listeler için girintileme ekleyelim */
-#table-of-contents ul ul {
-    padding-left: 1.5rem;
-}
-
-/* Tüm liste öğeleri için stil */
 #table-of-contents li {
     margin: 2px 0;
 }
 
-/* Tüm bağlantılar için ortak stiller */
 #table-of-contents a {
     display: block;
     padding: 4px 8px;
@@ -653,48 +690,6 @@ body.dark .alert-warning-custom {
     color: #495057;
 }
 
-/* H3 başlıklarının bağlantıları için stil */
-#table-of-contents a[data-level="3"] {
-    font-weight: 600;
-    color: #0d6efd;
-    border-left-color: #dee2e6;
-}
-
-/* H4 başlıklarının bağlantıları için stil */
-#table-of-contents a[data-level="4"] {
-    font-weight: 500;
-    color: #495057;
-    border-left-color: #e9ecef;
-}
-
-/* H5 başlıklarının bağlantıları için stil */
-#table-of-contents a[data-level="5"] {
-    font-weight: normal;
-    color: #6c757d;
-    font-size: 0.95em;
-    border-left-color: #f1f3f5;
-}
-
-/* Hover durumu için stil */
-#table-of-contents a:hover {
-    border-left-color: #0d6efd;
-    background-color: rgba(13, 110, 253, 0.05);
-    color: #0a58ca;
-    transform: translateX(2px);
-}
-
-/* Aktif bağlantı için stil */
-#table-of-contents a.active-link {
-    border-left-color: #0a58ca;
-    background-color: rgba(13, 110, 253, 0.08);
-    color: #0a58ca;
-    font-weight: bold;
-}
-
-#table-of-contents ul>li {
-    padding: 3px 0;
-}
-
 .toc-title {
     border: 1px solid #e5e5e5;
     padding: 0;
@@ -702,4 +697,80 @@ body.dark .alert-warning-custom {
     border-radius: .625rem .625rem 0 0;
 }
 
+#table-of-contents ul>li {
+    padding: 3px 0;
+}
 
+#table-of-contents a:hover {
+    border-left-color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.05);
+    color: #0a58ca;
+    transform: translateX(2px);
+}
+
+#table-of-contents ul ul {
+    padding-left: 1.5rem;
+}
+
+
+/* Table of Contents style end */
+
+
+
+/* ------------------------------- */
+
+:target {
+    scroll-margin-top: 80px;
+}
+
+/* ---------- */
+
+
+/* Code block style */
+
+code[class*=language-],
+pre[class*=language-] {
+    text-shadow: none !important;
+    margin-bottom: 2.8rem !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    overflow-x: auto;
+}
+
+
+.token.operator {
+    background: none !important;
+}
+
+.copy-to-clipboard-button {
+    background-color: yellow !important;
+    padding: 5px !important;
+    border-radius: 0.5rem !important;
+    margin: 5px 5px !important;
+}
+
+/* Code block style end */
+
+
+/* ---------------------------- */
+
+
+/* Alert info custom box style */
+
+.alert-info-custom {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    border-left: 4px solid #2196f3;
+}
+
+.alert-warning-custom {
+    background-color: #fff3cd;
+    color: #664d03;
+    transition: background-color 0.3s, color 0.3s;
+    border-left: 5px solid #ffc107;
+}
+
+
+/* Alert info custom box style end */

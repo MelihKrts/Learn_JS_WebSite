@@ -2,6 +2,7 @@
     "name": "Learn JS",
     "short_name": "LearnJS",
     "start_url": "/index.html",
+    "description":" Türkçe JavaScript Kaynağı",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#3498db",

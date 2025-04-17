@@ -1,0 +1,19 @@
+[
+    {
+        "title": "JavaScript Hakkında",
+        "url": "/hakkinda/hakkinda.html"
+    },
+    {
+        "title": "JavaScript Kurulumu",
+        "url": "/kurulum/kurulum.html"
+    },
+    {
+        "title": "JavaScript Kodunu Çalıştırma",
+        "url": "/run-code/run-code.html"
+    },
+    {
+        "title": "Veri Türleri",
+        "url": "/veri/veri-turleri.html"
+    }
+ 
+]

@@ -208,66 +208,10 @@ self.addEventListener('fetch', function (event) {
 });
 
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     const links = document.querySelectorAll('a[href^="#"]'); // Tüm bağlantıları seç
-
-//     links.forEach(link => {
-//         link.addEventListener("click", function (e) {
-//             e.preventDefault(); // Varsayılan davranışı durdur
-
-//             const targetId = this.getAttribute("href").substring(1);
-//             const targetElement = document.getElementById(targetId);
-
-//             if (targetElement) {
-//                 const headerOffset = 80; // 80px boşluk bırak
-//                 const elementPosition = targetElement.getBoundingClientRect().top;
-//                 const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-//                 window.scrollTo({
-//                     top: offsetPosition,
-//                     behavior: "smooth" // Yumuşak kaydırma efekti
-//                 });
-//             }
-//         });
-//     });
-// });
-
-
-
-// Aktif menü öğesini belirlemek için kod
-document.addEventListener('DOMContentLoaded', function () {
-    // Hash değerine göre ilgili menü öğesini bulma
-    const activateMenuItem = () => {
-        const hash = window.location.hash || '#';
-
-        // Tüm aktif sınıflarını temizle
-        document.querySelectorAll('.docs-sidenav .list-group-item').forEach(item => {
-            item.classList.remove('active');
-        });
-
-        // Hash ile eşleşen öğeyi bul ve aktifleştir
-        const activeItem = document.querySelector(`.docs-sidenav .list-group-item[href="${hash}"]`);
-        if (activeItem) {
-            activeItem.classList.add('active');
-
-            // Üst menüleri aç
-            let parent = activeItem.closest('.collapse');
-            while (parent) {
-                parent.classList.add('show');
-                const trigger = document.querySelector(`[data-bs-target="#${parent.id}"]`);
-                if (trigger) trigger.setAttribute('aria-expanded', 'true');
-                parent = parent.parentElement.closest('.collapse');
-            }
-        }
-    };
-
-    // Sayfa yüklendiğinde aktifleştir
-    activateMenuItem();
-
-    // Hash değiştiğinde aktifleştir
-    window.addEventListener('hashchange', activateMenuItem);
-});
-
 console.log("Hello World")
 
+import { createMenu } from "./menu.js";
 
+document.addEventListener("DOMContentLoaded", () => {
+    createMenu()
+})

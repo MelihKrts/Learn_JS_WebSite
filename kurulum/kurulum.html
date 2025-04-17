@@ -5,23 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Kurulumu</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+
+    <link id="prism-light" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-solarizedlight.css"
+        rel="stylesheet" />
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
         rel="stylesheet" />
+
     <link id="prism-dark" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-dracula.min.css"
         rel="stylesheet" disabled>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
         rel="stylesheet" />
 
-    <link rel="icon" type="image/png" href="../public/icon.png">
-    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/png" href="/public/icon.png">
+    <link rel="manifest" href="/manifest.json">
 
 </head>
 
@@ -57,185 +63,286 @@
         </ol>
     </nav>
 
-    <section class="w-100  min-vh-100 d-flex position-relative flex-column pt-4 pb-2 content-bg">
+    <!-- Sadece küçük ekranlarda görünen menü butonu -->
+    <div class="d-lg-none px-3 py-2">
+        <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileAside"
+            aria-controls="mobileAside">
+            Menü
+        </button>
+    </div>
 
-        <div class="overflow-hidden  pt-0 pb-4">
-            <img src="./javascript-kurulum.jpg" class="w-100 img-fluid  shadow">
-            <p class="text-center py-2">JavaScript ve Node.js logosu mevcut. Javascript Node.js Kurulumu yazıyor </p>
+    <!-- aside and content area -->
+
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileAside" aria-labelledby="mobileAsideLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileAsideLabel">Konular</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Kapat"></button>
         </div>
+        <div class="offcanvas-body">
+            <ul class="menu-links">
+            </ul>
+        </div>
+    </div>
 
-        <div class="container-xl">
-
-            <div class="row">
-
-                <div class="col rounded  mt-1 mb-3">
-
-                    <div id="table-of-contents">
-                        <div class="toc-title w-100">
-                            <h3 class="pt-3 pb-1 px-3">İçindekiler</h3>
-                        </div>
-    
-                        <ul>
-                            <li><a href="#JavaScript-Kurulum">JavaScript Kurulumu</a></li>
-                            <li><a href="#Kurulum-Sonrası">Kurulum Sonrası</a></li>
-                            <li><a href="#Node-Js-Test-Etme">Node.js Test Etme</a></li>
-                            <li><a href="#Kod-Editör-Kullanımı">Kod Editör Kullanımı</a></li>
-    
-                            <li>
-                                <a href="#NVM-Kurulumu">NVM Kurulumu Daha mı İyi?</a>
-                                <ul>
-                                    <li><a href="#Gerekli-Dosya-İndirilmesi">Gerekli Dosya İndirilmesi</a></li>
-                                    <li><a href="#NVM-Kontrolü-ve-Node.Js-Kurulumu">NVM Kontrolü ve Node.Js Kurulumu</a>
-                                    </li>
-                                </ul>
-                            </li>
-    
-                            <li>
-                                <a href="#Paket-Yönetim-Sistemi">Paket Yönetim Sistemi</a>
-                                <ul>
-                                    <li><a href="#NPM">NPM (Node Package Manager)</a></li>
-                                    <li><a href="#Yarn">Yarn</a></li>
-                                    <li><a href="#PNPM">PNPM</a></li>
-                                </ul>
-                            </li>
-    
-                            <li><a href="#Kaynakça">Kaynakça</a></li>
-    
-                        </ul>
-                    </div>
-
-                </div>
-
-
-                <div class="col-12 pb-4">
-
-                    <h3 id="JavaScript-Kurulum" class="py-3">JavaScript Kurulumu</h3>
-                    <p>JavaScript'in kendisi için kurulum gerekmez. JavaScript tarayıcılar tarafından
-                        çalıştırılan programlama dili olduğundan sistem (komut istemi) üzerinden çalıştırmak için
-                        Node.JS kurulumu gerekmektedir. 2025 Nisan tarihi itibari ile mevcut Node.Js LTS (Long Term
-                        Support) <b>v22.14.0</b> sürümüdür.
-                    </p>
-
-                    <p>Node.js buradan indirebilirsiniz. <a href="https://nodejs.org/en" target="_blank">Node.js</a></p>
-                    <p>Node.js kurulumu Windows için basittir. Dosya indirildikten sonra dosyayı çalıştırmanız ve
-                        yükleyici de açıklanan adımları takip etmeniz yeterlidir.</p>
-
-
-
-                    <h3 id="Kurulum-Sonrası">Kurulum Sonrası</h3>
-
-                    <p>Node.js kurulumunu başarılı şekilde tamamlandıysa <b>Komut istemi (CMD) veya klavye kısayolu</b>
-                        <kbd>win</kbd> + <kbd>r</kbd> <kbd>cmd</kbd> açılan ekrana <kbd>node -v</kbd> yazın. Versiyon
-                        numarası yazıyorsa kurulum tamamlanmıştır.
-                    </p>
-
-                    <pre class="rounded block line-numbers"><code class="language-bash ">v22.13.0</code></pre>
-
-
-                    <h3 id="Node-Js-Test-Etme">Node Js Test Etme</h3>
-                    <p>Node.Js kurulumu tamamlandıktan sonra Node.js çalıtırmak ve test etmek için masaüstüne veya
-                        istediğiniz herhangi bir dizine <kbd>test</kbd> klasörü oluşturup klasörün içine
-                        <kbd>app.js</kbd> dosyası oluşturup bu dosyaya şu kodu yazılmalı.
-                    </p>
-
-                    <pre
-                        class="rounded block line-numbers"><code class="language-javascript ">console.log("Node.js başarıyla yüklendi. Bu kod Node.js aracılığıyla çalıştırıldı")</code></pre>
-
-                    <p>Dosya bulunduğu konum doğru belirtildiyse konsolda çıktı verecektir ve çıtkı şu şekilde
-                        olacaktır. </p>
-
-                    <pre
-                        class="rounded block line-numbers"><code class="language-javascript ">Node.js başarıyla yüklendi. Bu kod Node.js aracılığıyla çalıştırıldı</code></pre>
-
-                    <h3 id="Kod-Editör-Kullanımı" class="py-2">Kod Editörü</h3>
-                    <p>JavaScript tarayıcılarda çalışan programlama dili olduğundan tarayıcı üzerinden çalıştırılabilir
-                        ama hata kontrolü, büyük projelerde yetersiz kalacaktır. Daha doğru ve gelişmiş kod yazmak için
-                        kod editörü kullanılması daha iyi olabilir. JavaScript (Web programlama) için bazı editörler
-                        kullanılabilir istediğinizi kullanabilirsiniz. Bunlar;</p>
-
-                    <ul class="code-editor-list">
-                        <li>Visual Studio Code (VS Code)</li>
-                        <li>Sublime Text</li>
-                        <li>Notepad ++</li>
-                        <li>WebStorm</li>
-                        <li>Atom</li>
+    <main class="container-fluid  pt-3">
+        <div class="row">
+            <aside class="col-lg-3 d-none d-lg-block">
+                <div class="sticky-sidebar bg-light">
+                    <h3 class="fs-5 fw-semibold text-primary border-bottom pb-2 mb-3">JavaScript Konuları</h3>
+                    <ul class="list-unstyled menu-links">
                     </ul>
 
-                    <img class="rounded shadow img-fluid my-4" src="./nvm-kurulum-windows.jpg"
-                        alt="Windows'a NVM kurulumu" />
-
-                    <p class="text-center text-muted">Windows üzerinde NVM kurulumu.</p>
-
-                    <h3 id="NVM-Kurulumu" class="py-3">NVM Kurulumu Daha mı İyi ?</h3>
-
-                    <p>NVM (Node Version Manager) birden fazla Node.Js sürümü kurmayı ve yönetmektedir. Node.Js kurulumu
-                        Normal kurulum ziyade biraz uğraştırıcı ama sürüm yükseltme, düşürme, konusunda kolaylık
-                        sağlamaktadır. NVM ile Node.js kurmak için bu adımlar yapılmalıdır;</p>
-
-                    <h5 class="pb-2" id="Gerekli-Dosya-İndirilmesi">1. Gerekli Dosya İndirilmesi</h5>
-
-                    <p class="pb-4">Bu link üzerinden <a href="https://github.com/coreybutler/nvm-windows/releases"
-                            target="_blank">nvm-windows</a> gerekli dosyayı indirmeniz ve çalıştırmanız gereklidir.</p>
-
-                    <h5 class="pb-2" id="NVM-Kontrolü-ve-Node.Js-Kurulumu">2. NVM Kontrolü ve Node.Js Kurulumu</h5>
-                    <p>İndirilen dosyayı çalıştırdıktan sonra NVM kurulumunu doğrulamak için komut istemine Aşağıda
-                        verilen kod yazılıp kontrol edilmeli. Versiyon numarası yazıyorsa NVM bilgisayarınıza kurulmuş
-                        olup NVM üzerinden Node.Js kurulumu yapabilirsiniz. NVM komutlarına <a
-                            href="https://github.com/coreybutler/nvm-windows" target="_blank">buradan</a>
-                        ulaşabilirsiniz.</p>
-
-
-                    <pre class="rounded block line-numbers"><code class="language-bash ">nvm -v</code></pre>
-
-                    <h3 id="Paket-Yönetim-Sistemi" class="py-3">Paket Yönetim Sistemi</h3>
-
-                    <img class="rounded img-fluid shadow my-4 w-100" src="./nyp.webp"
-                        alt="JavaScript için NPM, Yarn ve PNPM paket yönetim sistemleri karşılaştırması" />
-
-
-                    <p class="text-center text-muted">NPM, Yarn ve PNPM paket yönetim sistemlerinin karşılaştırılması.
-                    </p>
-
-                    <p>Paket Yönetim Sistemi, yazılım paketlerinin ve kütüphanelerinin konfigürasyonunu sağlar.
-                        JavaScript için paket yönetim sistemi başlıca NPM <b><i>(Node.js kurulumu esnasında varsayılan
-                                olarak NPM kurulur), yarn ve PNPM'dir</i></b>.</p>
-
-                    <h5 id="NPM">NPM (Node Packaage Manager)</h5>
-
-                    <p>NPM (Node Package Module) kısaltılmasıdır. Javascript için geliştirilmiş ve Node.js’in standart
-                        kabul ettiği paket yönetim sistemidir. NPM 2009 yılında oluşturulmuş, 12 Ocak 2010 yılında
-                        piyasaya sürülmüştür. Isaac Z. Schlueter tarafından yazılmıştır. NPM, Github tarafından satın
-                        alınmıştır. </p>
-
-                    <h5 id="Yarn">Yarn</h5>
-
-                    <p>Yarn, Meta Inc(Facebook), Exponent, Google ve Tilde işbirliği sonucu Sebastian McKenzie
-                        tarafından Javascript için geliştirilmiş ve NPM paket yöneticisinin alternatifidir. Yarn önemli
-                        kılan özelliği NPM, kıyasla daha hızlı performans, bellek tasarrufu ve güvenlik sağlamasıdır.
-                    </p>
-
-                    <h5 id="PNPM">PNPM</h5>
-
-                    <p>Performant NPM olarak adlandırılan PNPM, yarn ve NPM tüm özelliklerine sahip ve performanslı olan
-                        paket yönetim sistemidir. PNPM, versiyon 1 2017 yılında Zoltan Kochan tarafından yayınlandı.
-                        PNPM’yi Yarn ve NPM’den ayıran özelliği bir paket yönetildikten sonra önbelleğe alır. Sonraki
-                        projelerde kullanılacaksa yerelden çekilir böylece NPM üzerinden dosyayı tekrar indirmeye ve
-                        bellek harcamasına gerek kalmayacaktır.</p>
-
                 </div>
 
-                <h3 id="Kaynakça">Kaynakça</h3>
-                <ul>
-                    <li><a href="https://melihkaratas.medium.com/npm-yarn-ve-pnpm-nedir-d92b39bd4e26"
-                            target="_blank">https://melihkaratas.medium.com/npm-yarn-ve-pnpm-nedir-d92b39bd4e26</a></li>
+            </aside>
 
-                </ul>
+            <section class="col-12 col-lg-9 px-4 pt-4">
+                <div class="overflow-hidden  pt-0 pb-4">
+                    <img src="./javascript-kurulum.jpg" class="img-fluid w-100 shadow rounded">
+                    <p class="text-center py-2">JavaScript ve Node.js logosu mevcut. Javascript Node.js Kurulumu yazıyor</p>
+                
+                </div>
 
-            </div>
+                <div class="container-xl">
+
+                    <div class="row">
+        
+                        <div class="col rounded  mt-1 mb-3">
+        
+                            <div id="table-of-contents">
+                                <div class="toc-title w-100">
+                                    <h3 class="pt-3 pb-1 px-3">İçindekiler</h3>
+                                </div>
+        
+                                <ul>
+                                    <li><a href="#JavaScript-Kurulum">JavaScript Kurulumu</a></li>
+                                    <li><a href="#Kurulum-Sonrası">Kurulum Sonrası</a></li>
+                                    <li><a href="#Node-Js-Test-Etme">Node.js Test Etme</a></li>
+                                    <li><a href="#Kod-Editör-Kullanımı">Kod Editör Kullanımı</a></li>
+        
+                                    <li>
+                                        <a href="#NVM-Kurulumu">NVM Kurulumu Daha mı İyi?</a>
+                                        <ul>
+                                            <li><a href="#Gerekli-Dosya-İndirilmesi">Gerekli Dosya İndirilmesi</a></li>
+                                            <li><a href="#NVM-Kontrolü-ve-Node.Js-Kurulumu">NVM Kontrolü ve Node.Js Kurulumu</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+        
+                                    <li>
+                                        <a href="#Paket-Yönetim-Sistemi">Paket Yönetim Sistemi</a>
+                                        <ul>
+                                            <li><a href="#NPM">NPM (Node Package Manager)</a></li>
+                                            <li><a href="#Yarn">Yarn</a></li>
+                                            <li><a href="#PNPM">PNPM</a></li>
+                                        </ul>
+                                    </li>
+        
+                                    <li><a href="#Kaynakça">Kaynakça</a></li>
+        
+                                </ul>
+                            </div>
+        
+                        </div>
+        
+        
+                        <div class="col-12 pb-4">
+        
+                            <h2 id="JavaScript-Kurulum" class="section-heading">
+                                <a href="#JavaScript-Kurulum" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>JavaScript Kurulumu</span>
+                                </a>
+                            </h2>
+        
+                            <p>JavaScript'in kendisi için kurulum gerekmez. JavaScript tarayıcılar tarafından
+                                çalıştırılan programlama dili olduğundan sistem (komut istemi) üzerinden çalıştırmak için
+                                Node.JS kurulumu gerekmektedir. 2025 Nisan tarihi itibari ile mevcut Node.Js LTS (Long Term
+                                Support) <b>v22.14.0</b> sürümüdür.
+                            </p>
+        
+                            <p>Node.js buradan indirebilirsiniz. <a href="https://nodejs.org/en" target="_blank">Node.js</a></p>
+                            <p>Node.js kurulumu Windows için basittir. Dosya indirildikten sonra dosyayı çalıştırmanız ve
+                                yükleyici de açıklanan adımları takip etmeniz yeterlidir.</p>
+        
+        
+                            <h2 id="Kurulum-Sonrası" class="section-heading heading">
+                                <a href="#Kurulum-Sonrası" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Kurulum Sonrası</span>
+                                </a>
+                            </h2>
+        
+        
+                            <p>Node.js kurulumunu başarılı şekilde tamamlandıysa <b>Komut istemi (CMD) veya klavye kısayolu</b>
+                                <kbd>win</kbd> + <kbd>r</kbd> <kbd>cmd</kbd> açılan ekrana <code>node -v</code> yazın. Versiyon
+                                numarası yazıyorsa kurulum tamamlanmıştır.
+                            </p>
+        
+                            <pre class="rounded block line-numbers"><code class="language-text">v22.13.0</code></pre>
+        
+        
+                            <h2 id="Node-Js-Test-Etme" class="section-heading heading">
+                                <a href="#Node-Js-Test-Etme" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Node Js Test Etme</span>
+                                </a>
+                            </h2>
+        
+                            <p>Node.Js kurulumu tamamlandıktan sonra Node.js çalıtırmak ve test etmek için masaüstüne veya
+                                istediğiniz herhangi bir dizine <kbd>test</kbd> klasörü oluşturup klasörün içine
+                                <code>app.js</code> dosyası oluşturup bu dosyaya şu kodu yazılmalı.
+                            </p>
+        
+                            <pre
+                                class="rounded block line-numbers"><code class="language-javascript ">console.log("Node.js başarıyla yüklendi. Bu kod Node.js aracılığıyla çalıştırıldı")</code></pre>
+        
+                            <p>Dosya bulunduğu konum doğru belirtildiyse konsolda çıktı verecektir ve çıtkı şu şekilde
+                                olacaktır. </p>
+        
+                            <pre
+                                class="rounded block line-numbers"><code class="language-text">Node.js başarıyla yüklendi. Bu kod Node.js aracılığıyla çalıştırıldı</code></pre>
+        
+                            <h2 id="Kod-Editör-Kullanımı" class="section-heading heading">
+                                <a href="#Kod-Editör-Kullanımı" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Kod Editörü</span>
+                                </a>
+                            </h2>
+        
+                            <p>JavaScript tarayıcılarda çalışan programlama dili olduğundan tarayıcı üzerinden çalıştırılabilir
+                                ama hata kontrolü, büyük projelerde yetersiz kalacaktır. Daha doğru ve gelişmiş kod yazmak için
+                                kod editörü kullanılması daha iyi olabilir. JavaScript (Web programlama) için bazı editörler
+                                kullanılabilir istediğinizi kullanabilirsiniz. Bunlar;</p>
+        
+                            <ul class="code-editor-list">
+                                <li>Visual Studio Code (VS Code)</li>
+                                <li>Sublime Text</li>
+                                <li>Notepad ++</li>
+                                <li>WebStorm</li>
+                                <li>Atom</li>
+                            </ul>
+        
+                            <img class="rounded shadow img-fluid my-4" src="./nvm-kurulum-windows.jpg"
+                                alt="Windows'a NVM kurulumu" />
+        
+                            <p class="text-center text-muted">Windows üzerinde NVM kurulumu.</p>
+        
+                            <h2 id="NVM-Kurulumu" class="section-heading">
+                                <a href="#NVM-Kurulumu" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>NVM Kurulumu Daha mı İyi ?</span>
+                                </a>
+                            </h2>
+        
+        
+                            <p>NVM (Node Version Manager) birden fazla Node.Js sürümü kurmayı ve yönetmektedir. Node.Js kurulumu
+                                Normal kurulum ziyade biraz uğraştırıcı ama sürüm yükseltme, düşürme, konusunda kolaylık
+                                sağlamaktadır. NVM ile Node.js kurmak için bu adımlar yapılmalıdır;</p>
+
+                            <h5 id="Gerekli-Dosya-İndirilmesi" class="sub-heading ">
+                                <a href="#Gerekli-Dosya-İndirilmesi" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>1. Gerekli Dosya İndirilmesi</span>
+                                </a>
+                            </h5> 
+        
+                            <p class="pb-4">Bu link üzerinden <a href="https://github.com/coreybutler/nvm-windows/releases"
+                                    target="_blank">nvm-windows</a> gerekli dosyayı indirmeniz ve çalıştırmanız gereklidir.</p>
+
+                                    <h5 id="NVM-Kontrolü-ve-Node.Js-Kurulumu" class="sub-heading">
+                                        <a href="#NVM-Kontrolü-ve-Node.Js-Kurulumu" class="heading-link">
+                                            <i class="fa-solid fa-hashtag me-2"></i>
+                                            <span>2. NVM Kontrolü ve Node.Js Kurulumu</span>
+                                        </a>
+                                    </h5>   
+                                      
+
+                            <p>İndirilen dosyayı çalıştırdıktan sonra NVM kurulumunu doğrulamak için komut istemine Aşağıda
+                                verilen kod yazılıp kontrol edilmeli. Versiyon numarası yazıyorsa NVM bilgisayarınıza kurulmuş
+                                olup NVM üzerinden Node.Js kurulumu yapabilirsiniz. NVM komutlarına <a
+                                    href="https://github.com/coreybutler/nvm-windows" target="_blank">buradan</a>
+                                ulaşabilirsiniz.</p>
+        
+        
+                            <pre class="rounded block line-numbers"><code class="language-bash ">nvm -v</code></pre>
+        
+                            <img class="rounded img-fluid shadow my-5 w-100" src="./nyp.webp"
+                                alt="JavaScript için NPM, Yarn ve PNPM paket yönetim sistemleri karşılaştırması" />
+        
+                            <p class="text-center text-muted">NPM, Yarn ve PNPM paket yönetim sistemlerinin karşılaştırılması.
+                            </p>
+        
+                            <h2 id="Paket-Yönetim-Sistemi" class="section-heading">
+                                <a href="#Paket-Yönetim-Sistemi" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Paket Yönetim Sistemi</span>
+                                </a>
+                            </h2>
+        
+        
+        
+                            <p>Paket Yönetim Sistemi, yazılım paketlerinin ve kütüphanelerinin konfigürasyonunu sağlar.
+                                JavaScript için paket yönetim sistemi başlıca NPM <b><i>(Node.js kurulumu esnasında varsayılan
+                                        olarak NPM kurulur), yarn ve PNPM'dir</i></b>.</p>
+
+                                        
+        
+                            <h5 id="NPM" class="sub-heading">
+                                <a href="#NPM" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>NPM (Node Packaage Manager)</span>
+                                </a>
+                            </h5>   
+        
+                            <p>NPM (Node Package Module) kısaltılmasıdır. Javascript için geliştirilmiş ve Node.js’in standart
+                                kabul ettiği paket yönetim sistemidir. NPM 2009 yılında oluşturulmuş, 12 Ocak 2010 yılında
+                                piyasaya sürülmüştür. <b>Isaac Z. Schlueter</b> tarafından yazılmıştır. NPM, Github tarafından satın
+                                alınmıştır. </p>
+
+                                <h5 id="Yarn" class="sub-heading">
+                                    <a href="#Yarn" class="heading-link">
+                                        <i class="fa-solid fa-hashtag me-2"></i>
+                                        <span>Yarn</span>
+                                    </a>
+                                </h5>   
+        
+                            <p>Yarn, Meta Inc (Facebook), Exponent, Google ve Tilde işbirliği sonucu <b>Sebastian McKenzie</b>
+                                tarafından Javascript için geliştirilmiş ve NPM paket yöneticisinin alternatifidir. Yarn önemli
+                                kılan özelliği NPM, kıyasla daha hızlı performans, bellek tasarrufu ve güvenlik sağlamasıdır.
+                            </p>
+
+                            <h5 id="PNPM" class="sub-heading">
+                                <a href="#PNPM" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>PNPM</span>
+                                </a>
+                            </h5>   
+        
+                            <p>Performant NPM olarak adlandırılan PNPM, yarn ve NPM tüm özelliklerine sahip ve performanslı olan
+                                paket yönetim sistemidir. PNPM, versiyon 1 2017 yılında <b>Zoltan Kochan</b> tarafından yayınlandı.
+                                PNPM’yi Yarn ve NPM’den ayıran özelliği bir paket yönetildikten sonra önbelleğe alır. Sonraki
+                                projelerde kullanılacaksa yerelden çekilir böylece NPM üzerinden dosyayı tekrar indirmeye ve
+                                bellek harcamasına gerek kalmayacaktır.</p>
+        
+                        </div>
+        
+                        <h3 id="Kaynakça">Kaynakça</h3>
+                        <ul>
+                            <li><a href="https://melihkaratas.medium.com/npm-yarn-ve-pnpm-nedir-d92b39bd4e26"
+                                    target="_blank">https://melihkaratas.medium.com/npm-yarn-ve-pnpm-nedir-d92b39bd4e26</a></li>
+        
+                        </ul>
+        
+                    </div>
+        
+                </div>
+
+            </section>
 
         </div>
+    </main>
 
-    </section>
 
     <button class="scroll-top-btn" id="scroll-btn">
         <i class="fa-solid fa-chevron-up"></i>
@@ -285,7 +392,7 @@
         });
     </script>
 
-    <script src="../main.js"></script>
+    <script type="module" src="/js/main.js"></script>
 
 
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" >
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -7,15 +7,19 @@
     <title>JavaScript Tarihçe</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="manifest" href="/manifest.json">
 
-    <link rel="icon" type="image/png" href="./public/icon.png">
+    <link rel="icon" type="image/png" href="/public/icon.png">
 
 </head>
 
 <body>
+
+    <!-- Header -->
 
     <header class="w-100 position-fixed z-index-damn header-bg fixed-top">
         <nav class="navbar navbar-expand-lg">
@@ -28,15 +32,18 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="../konular.html">Konular</a>
+                            <a class="nav-link " aria-current="page" href="/konular.html">Konular</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="../../code-editor.html">Code Editor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/code-editor.html">Code Editor</a></li>
                     </ul>
                     <button id="theme">Theme</button>
                 </div>
             </div>
         </nav>
     </header>
+
+
+    <!-- Braedcrumb and website title showing div -->
 
     <div class="w-100 subject-title-space title-bg ps-2 pb-2">
         <h3 class="title">JavaScript Tarihçe</h3>
@@ -47,89 +54,162 @@
         </ol>
     </nav>
 
-    <section class="w-100  min-vh-100 d-flex position-relative flex-column pt-4 pb-2 content-bg">
+    <!-- Sadece küçük ekranlarda görünen menü butonu -->
+    <div class="d-lg-none px-3 py-2">
+        <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileAside"
+            aria-controls="mobileAside">
+            Menü
+        </button>
+    </div>
 
-        <div class="overflow-hidden  pt-0 pb-4">
-            <img src="./javascript-history.jpg" class="img-fluid w-100 shadow rounded">
-            <p class="text-center py-2">JavaScript logosu mevcut. JavaScript Tarihçe yazmakta</p>
+
+    <!-- aside and content area -->
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileAside" aria-labelledby="mobileAsideLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileAsideLabel">Konular</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Kapat"></button>
         </div>
+        <div class="offcanvas-body">
+            <ul class="menu-links">
+            </ul>
+        </div>
+    </div>
 
-        <div class="container-xl">
-            <div class="row">
+    <main class="container-fluid  pt-3">
 
-                <div class="col rounded toc-bg mt-1 mb-3">
-                    <h3 class="pt-4 px-2">İçindekiler</h3>
-                    <ul>
-                        <li><a href="#JavaScript-Nedir">JavaScript Nedir</a></li>
-                        <li><a href="#Tarihçe">Tarihçe</a></li>
-                        <li><a href="#Bilgi">Bilgi</a></li>
-                        <li><a href="#Kaynakça">Kaynakça</a></li>
+        <div class="row">
+
+            <aside class="col-lg-3 d-none d-lg-block">
+                <div class="sticky-sidebar bg-light">
+                    <h3 class="fs-5 fw-semibold text-primary border-bottom pb-2 mb-3">JavaScript Konuları</h3>
+                    <ul class="list-unstyled menu-links">
                     </ul>
-                </div>
-
-                <div class="col-12 pb-4">
-
-                    <h3 id="JavaScript-Nedir" class="py-3">JavaScript Nedir</h3>
-                    <p>JavaScript web programlama dilidir. Daha çok dinamik ağırlıklı web siteleri yaparken
-                        kullanılmaktadır.
-                        JavaScript'in DOM(Document Object Model) ile HTML ve CSS müdahalesi bulunmaktadır. (DOM yapısı
-                        anlatılacaktır).
-                        En basit örnek olarak form doğrulama (validation), stil düzenleme, ekleme, silmeyi sağlıyor.
-                    </p>
-
-
-                    <p>JavaScript günümüzde hızlı ilerleyen teknoloji ile back-end (arka uç), UI oluşturma (tanımlama),
-                        masaüstü
-                        programlama, yapay zeka, mobil programlama alanlarında da kullanılmaktadır. Bu teknoloji
-                        alanlarında
-                        JavaScript
-                        framework, library sayesinde projeler oluşturulmaktadır. </p>
-
-                    <h3 id="Tarihçe">Tarihçe</h3>
-
-                    <p>JavaScript 1995 yılında <b>Brendan Eich </b> tarafından geliştirildi. JavaScript ilk zamanda adı
-                        sırasıyla
-                        <b>Mocha, LiveScript</b> Netscape ve Sun Microsystems tarafından <b>JavaScript</b> olarak
-                        isimlendirildi. Statik
-                        web sayfalarını dinamik ve etkileşim vermek için tasarlandı.
-                    </p>
-
-                    <p>Netscape JavaScript projesini (Brendan Eich Netscape çalışanı) Ecma International tarafından
-                        oluşturulan
-                        standartlara göre geliştirmiştir. 2025 yılında yazılan bu yazı referans alanlarında ECMAScript
-                        çercevesinde Ecma
-                        International tarafından geliştirilmektedir.</p>
-
-                    <h3 id="Bilgi">Bilgi</h3>
 
                 </div>
 
+            </aside>
 
-                <div class=" rounded my-2 col-12 col-sm-12 custom-div mb-4">
-                    <p class="text-start text-dark p-2 mb-0 "> Günümüzde web siteleri istemci ile etkileşim içindedir.
-                        Web
-                        teknolojisi
-                        gelişmeden önce istemci ile web sitesi
-                        etkileşimi fazla değildi. teknolojinin gelişmesi ile bu durum azalmıştır.</p>
+
+            <section class="col-12 col-lg-9 px-4 pt-4">
+
+                <div class="overflow-hidden  pt-0 pb-4">
+                    <img src="./javascript-history.jpg" class="img-fluid w-100 shadow rounded">
+                    <p class="text-center py-2">JavaScript logosu mevcut. JavaScript Tarihçe yazmakta</p>
                 </div>
 
-                <h3 id="Kaynakça">Kaynakça</h3>
-                <ul>
-                    <li><a href="https://www.w3schools.com/js/js_intro.asp" target="_blank">https://www.w3schools.com/js/js_intro.asp</a></li>
-                    <li><a href="https://www.patika.dev/blog/javascript-nedir-ne-ise-yarar" target="_blank">https://www.patika.dev/blog/javascript-nedir-ne-ise-yarar</a></li>
-                    
-                </ul>
+                <div class="container-xl">
+                    <div class="row">
 
-            </div>
+                        <div class="col rounded  mt-1 mb-3">
+
+                            <div id="table-of-contents">
+                                <div class="toc-title w-100">
+                                    <h3 class="pt-3 pb-1 px-3">İçindekiler</h3>
+                                </div>
+
+                                <ul >
+                                    <li><a href="#JavaScript-Nedir">JavaScript Nedir</a></li>
+                                    <li><a href="#Tarihçe">Tarihçe</a></li>
+                                    <li><a href="#Kaynakça">Kaynakça</a></li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 pb-4">
+
+                            <h2 id="JavaScript-Nedir" class="heading section-heading">
+                                <a href="#JavaScript-Nedir" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>JavaScript Nedir</span>
+                                </a>
+                            </h2>
+
+                            <p>JavaScript web programlama dilidir. Daha çok dinamik ağırlıklı web siteleri yaparken
+                                kullanılmaktadır.
+                                JavaScript'in DOM(Document Object Model) ile HTML ve CSS müdahalesi bulunmaktadır. (DOM
+                                yapısı
+                                anlatılacaktır).
+                                En basit örnek olarak form doğrulama (validation), stil düzenleme, ekleme, silmeyi
+                                sağlıyor.
+                            </p>
+
+
+                            <p>JavaScript günümüzde hızlı ilerleyen teknoloji ile back-end (arka uç), UI oluşturma
+                                (tanımlama),
+                                masaüstü
+                                programlama, yapay zeka, mobil programlama alanlarında da kullanılmaktadır. Bu teknoloji
+                                alanlarında
+                                JavaScript
+                                framework, library sayesinde projeler oluşturulmaktadır. </p>
+
+                            <h2 id="Tarihçe" class="heading section-heading">
+                                <a href="#Tarihçe" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Tarihçe</span>
+                                </a>
+                            </h2>
+
+                            <p>JavaScript 1995 yılında <b>Brendan Eich </b> tarafından geliştirildi. JavaScript ilk
+                                zamanda
+                                adı
+                                sırasıyla
+                                <b>Mocha, LiveScript</b> Netscape ve Sun Microsystems tarafından <b>JavaScript</b>
+                                olarak
+                                isimlendirildi. Statik
+                                web sayfalarını dinamik ve etkileşim vermek için tasarlandı.
+                            </p>
+
+                            <p>Netscape JavaScript projesini (Brendan Eich Netscape çalışanı) Ecma International
+                                tarafından
+                                oluşturulan
+                                standartlara göre geliştirmiştir. 2025 yılında yazılan bu yazı referans alanlarında
+                                ECMAScript
+                                çercevesinde Ecma
+                                International tarafından geliştirilmektedir.</p>
+
+
+                            <div class="col-12 alert-info-custom rounded px-2 pt-2 mb-5">
+                                <h3 class="py-2 px-2"><i class="fa-solid fa-circle-info"></i> Bilgi</h3>
+                                <p class="py-2 px-2"> Günümüzde web siteleri istemci ile etkileşim
+                                    içindedir.
+                                    Web
+                                    teknolojisi
+                                    gelişmeden önce istemci ile web sitesi
+                                    etkileşimi fazla değildi. teknolojinin gelişmesi ile bu durum azalmıştır.</p>
+                            </div>
+
+                            <h2 id="Kaynakça">Kaynakça</h2>
+                            <ul>
+                                <li><a href="https://www.w3schools.com/js/js_intro.asp"
+                                        target="_blank">https://www.w3schools.com/js/js_intro.asp</a></li>
+                                <li><a href="https://www.patika.dev/blog/javascript-nedir-ne-ise-yarar"
+                                        target="_blank">https://www.patika.dev/blog/javascript-nedir-ne-ise-yarar</a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
 
         </div>
 
-    </section>
+    </main>
+
+    <!-- scroll btn -->
 
     <button class="scroll-top-btn" id="scroll-btn">
         <i class="fa-solid fa-chevron-up"></i>
     </button>
 
+    <!-- Footer -->
 
     <footer class="w-100 bg-primary">
         <div class="container">
@@ -141,22 +221,27 @@
         </div>
     </footer>
 
+    <!-- Offline screen -->
+
     <div id="offline" class="offline-overlay">
         <div class="offline-container">
-            <h3>İnternet Bağlantısında sorun var  😕</h3>
+            <h3>İnternet Bağlantısında sorun var 😕</h3>
             <p>Lütfen bağlantınızı kontrol edin.</p>
             <button onclick="location.reload()" class="retry-btn">Tekrar Dene</button>
         </div>
     </div>
-    
+
     <div id="online-notification" class="online-notification">
         🔄 Bağlantı geri geldi!
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- JS File -->
 
-        <script src="../main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script type="module" src="/js/main.js"></script>
 
 
 </body>
