@@ -2,7 +2,7 @@
     "name": "Learn JS",
     "short_name": "LearnJS",
     "start_url": "/index.html",
-    "description":" Türkçe JavaScript Kaynağı",
+    "description": " Türkçe JavaScript Kaynağı",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#3498db",
@@ -454,6 +454,14 @@
         {
             "src": "./public/ios/1024.png",
             "sizes": "1024x1024"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "./public/screenshot/screenshot.png",
+            "sizes": "1013x2216",
+            "type": "image/png",
+            "form_factor": "narrow"
         }
     ]
 }
