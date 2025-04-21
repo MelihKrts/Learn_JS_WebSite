@@ -86,11 +86,17 @@ p {
     margin-bottom: 1.5rem;
 }
 
-.heading{
+.heading {
     display: flex;
     align-items: center;
 }
 
+.special-title {
+    border-bottom: 1px solid #2ecc71;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    width: max-content;
+}
 
 .sub-heading {
     font-size: 1.1rem;
@@ -113,7 +119,7 @@ p {
 }
 
 h2 .heading-link i {
-    font-size: 1.5rem; /* H2 için daha büyük bir ikon boyutu */
+    font-size: 1.5rem;
 }
 
 .heading-link i {
@@ -121,16 +127,32 @@ h2 .heading-link i {
     align-items: center;
     justify-content: center;
     margin-right: 0.5rem;
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
     line-height: 1;
     opacity: 0.3;
     transition: transform 0.2s ease, color 0.3s ease;
 }
 
-.dark .sub-heading {
-    color: #ddd;
-    border-left-color: #66b2ff;
+.middle-heading {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #32445a;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.3rem;
 }
+
+.middle-heading a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.middle-heading a:hover {
+    color: #0d6efd;
+}
+
 
 .heading-link:hover i {
     transform: scale(1.1);
@@ -482,6 +504,20 @@ body.dark .alert-warning-custom {
     color: #000;
 }
 
+.dark .custom-caption {
+    color: #fff;
+}
+
+.dark .sub-heading {
+    color: #ddd;
+    border-left-color: #66b2ff;
+}
+
+.dark .middle-heading {
+    border-color: #555;
+    color: #fff;
+}
+
 
 /* Dark Mode Style End */
 
@@ -625,7 +661,7 @@ aside .sticky-sidebar::-webkit-scrollbar-thumb {
 /* --------------------------- */
 
 
-/* Padding Z-index subject */
+/* Padding Z-index subject Image alt text style (fig) */
 
 .pt-6 {
     padding-top: 4rem;
@@ -645,6 +681,17 @@ aside .sticky-sidebar::-webkit-scrollbar-thumb {
 
 .code-editor-list {
     margin-bottom: 2rem;
+}
+
+.code-editor-list li {
+    list-style: disc;
+    list-style-position: inside;
+}
+
+.custom-caption {
+    font-size: 0.9rem;
+    color: #333;
+    padding: 1rem 0
 }
 
 /* Padding style end */
@@ -750,6 +797,29 @@ pre[class*=language-] {
     border-radius: 0.5rem !important;
     margin: 5px 5px !important;
 }
+
+.code-block-hover {
+    transition: box-shadow 0.4s ease, transform 0.3s ease;
+    will-change: box-shadow, transform;
+}
+
+/* .code-block-hover:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+} */
+ 
+.code-block-hover:hover {
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.25) !important;
+    transform: translateY(-2px);
+    /* hafif yukarı kalksın */
+    transition: all 0.3s ease;
+}
+
+.code-block-hover:active {
+    transform: translateY(0px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2) !important;
+}
+
+
 
 /* Code block style end */
 

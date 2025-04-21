@@ -1,43 +1,41 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veri Türleri</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
+
+    <!-- Prism.css -->
+
+    <link id="prism-light" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-solarizedlight.css"
         rel="stylesheet" />
-    <!-- <link id="prism-dark" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-dracula.min.css"
-        rel="stylesheet" disabled> -->
 
-    <!-- <link id="prism-dark" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-tomorrow.min.css" rel="stylesheet" disabled> -->
-
-    <!-- <link id="prism-dark" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-solarized-dark.min.css" rel="stylesheet" disabled>
-
-        <link id="prism-dark" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-material-dark.min.css" rel="stylesheet" disabled> -->
 
     <link id="prism-dark" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
         rel="stylesheet" disabled>
 
-    <link id="prism-light"
-        href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-solarized-light.min.css" rel="stylesheet">
 
+    <!-- <link id="prism-light"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-solarized-light.min.css" rel="stylesheet"> -->
 
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
+        rel="stylesheet" />
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
         rel="stylesheet" />
 
-    <link rel="icon" type="image/png" href="../public/icon.png">
-    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="icon" type="image/png" href="/public/icon.png">
+    <link rel="manifest" href="/manifest.json">
 
 </head>
 
@@ -54,9 +52,9 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="../konular.html">Konular</a>
+                            <a class="nav-link " aria-current="page" href="/konular.html">Konular</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="../../code-editor.html">Code Editor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/code-editor.html">Code Editor</a></li>
                     </ul>
                     <button id="theme">Theme</button>
                 </div>
@@ -73,131 +71,198 @@
         </ol>
     </nav>
 
-    <section class="w-100  min-vh-100 d-flex position-relative flex-column pt-4 pb-2 content-bg">
+    <div class="d-lg-none px-3 py-2">
+        <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileAside"
+            aria-controls="mobileAside">
+            Menü
+        </button>
+    </div>
 
-        <div class="overflow-hidden  pt-0 pb-4">
-            <img src="./javascript-data-types.jpg" class="w-100 img-fluid  shadow">
-            <p class="text-center py-2">JavaScript ve Node.js logosu mevcut. Javascript Veri Türleri yazıyor </p>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileAside" aria-labelledby="mobileAsideLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileAsideLabel">Konular</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Kapat"></button>
         </div>
+        <div class="offcanvas-body">
+            <ul class="menu-links">
+            </ul>
+        </div>
+    </div>
 
-        <div class="container-xl">
-
-            <div class="row">
-
-                <div class="col rounded  mt-1 mb-3">
-
-                    <div id="table-of-contents">
-                        <div class="toc-title w-100">
-                            <h3 class="pt-3 pb-1 px-3">İçindekiler</h3>
-                        </div>
-                        
-                        <ul>
-                            <li><a href="#Veri-Türleri">Veri Türleri </a>
-                                <ul>
-                                    <li><a href="#İlkel-Veri-Türleri">İlkel (Primitive) Veri Türleri </a>
-                                        <ul>
-                                            <li><a href="#String">String </a></li>
-                                            <li><a href="#Number">Number </a></li>
-                                            <li><a href="#Boolean">Boolean </a></li>
-                                            <li><a href="#Undefined">Undefined</a></li>
-                                            <li><a href="#Null">Null</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <ul>
-                                <li><a href="#Non-Primitive-Data-Types">Non Primitive Data Types (İlkel Olmayan Veri
-                                        Türleri)
-                                    </a>
-                                    <ul>
-                                        <li><a href="#Array">Array</a></li>
-                                        <li><a href="#Object">Object </a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-
-                            <li><a href="#Bilgi-Kutusu">Bilgi Kutusu</a></li>
-                            <li><a href="#Uyarı">Uyarı</a></li>
-                            
-                            <li><a href="#Kaynakça">Kaynakça</a></li>
-
-                        </ul>
-                    </div>
+    <main class="container-fluid  pt-3">
+        <div class="row">
+            <aside class="col-lg-3 d-none d-lg-block">
+                <div class="sticky-sidebar bg-light">
+                    <h3 class="fs-5 fw-semibold text-primary border-bottom pb-2 mb-3">JavaScript Konuları</h3>
+                    <ul class="list-unstyled menu-links">
+                    </ul>
 
                 </div>
 
-                <div class="col-12 pb-4">
+            </aside>
 
-                    <h3 id="Veri-Türleri" class="py-3">Veri Türleri</h3>
-                    <p>Programlama dillerinde veri türleri vardır. Bu veri türleri değerin hangi türde tutacağını
-                        belirtmek için kullanılır. Bu veri türleri İlkel ve ilkel olmayan veri türü olmak üzere ikiye
-                        ayrılır.</p>
+            <section class="col-12 col-lg-9 px-4 pt-4">
 
-                    <h4 id="İlkel-Veri-Türleri" class="subitem">İlkel (Primitive) Veri Türleri</h4>
+                <figure class="figure text-center w-100">
+                    <img src="./javascript-data-types.jpg" class="figure-img img-fluid rounded shadow"
+                        alt="JavaScript ve Node.js logosu mevcut. Javascript Veri Türleri yazıyor">
+                    <figcaption class="figure-caption custom-caption">
+                        JavaScript ve Node.js logosu mevcut. Javascript Veri Türleri yazıyor
+                    </figcaption>
+                </figure>
 
-                    <p>İlkel Veri tipi değiştirilemeyen temel değerdir. Oluşturulduktan sonra değiştirilemez. Doğrudan
-                        bellekte (RAM) saklanmaktadır. İlkel (Primitive) veri türleri;</p>
+                <div class="container-xl">
+                    <div class="row">
+                        <div class="col rounded  mt-1 mb-3">
 
-                    <ul class="code-editor-list">
-                        <li>String</li>
-                        <li>Number</li>
-                        <li>BigInt</li>
-                        <li>Boolean</li>
-                        <li>Undefined</li>
-                        <li>Null</li>
-                        <li>Symbol</li>
-                    </ul>
+                            <div id="table-of-contents">
+                                <div class="toc-title w-100">
+                                    <h3 class="pt-3 pb-1 px-3">İçindekiler</h3>
+                                </div>
 
-                    <div class="col-12 pb-4">
+                                <ul>
+                                    <li><a href="#Veri-Türleri">Veri Türleri </a>
+                                        <ul>
+                                            <li><a href="#İlkel-Veri-Türleri">İlkel (Primitive) Veri Türleri </a>
+                                                <ul>
+                                                    <li><a href="#String">String </a></li>
+                                                    <li><a href="#Number">Number </a></li>
+                                                    <li><a href="#Boolean">Boolean </a></li>
+                                                    <li><a href="#Undefined">Undefined</a></li>
+                                                    <li><a href="#Null">Null</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
 
-                        <h5 id="String" class="subitem">String</h5>
+                                    <ul>
+                                        <li><a href="#Non-Primitive-Data-Types">Non Primitive Data Types (İlkel Olmayan
+                                                Veri
+                                                Türleri)
+                                            </a>
+                                            <ul>
+                                                <li><a href="#Array">Array</a></li>
+                                                <li><a href="#Object">Object </a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
 
-                        <p>String veri türü metni temsil eder Örnek kullanım şu şekildedir.</p>
 
-                        <pre
-                            class="rounded block line-numbers"><code class="language-javascript">let name = "John" </code></pre>
+                                    <li><a href="#İlkel-Olmayan-Veri-Ve-İlkel-Veri-Türü-Değişmez-Özelliği">İlkel
+                                            olmayan veri ve İlkel veri türü değişmez özelliği</a></li>
 
-                        <h5 id="Number" class="subitem">Number</h5>
+                                    <li><a href="#Kaynakça">Kaynakça</a></li>
 
-                        <p>Number veri türü sayısal veri türüdür. Örnek kullanım bu şekildedir.</p>
+                                </ul>
+                            </div>
 
-                        <pre
-                            class="rounded block line-numbers"><code class="language-javascript">let number = 10 </code></pre>
+                        </div>
 
-                        <h5 id="Boolean" class="subitem">Boolean</h5>
+                        <div class="col-12 pb-4">
+                            <h2 id="Veri-Türleri" class="section-heading">
+                                <a href="#Veri-Türleri" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Veri Türleri</span>
+                                </a>
+                            </h2>
 
-                        <p>Boolean mantıksal veri türüdür. 2 değer alır. <code class="language-javascript">true</code>
-                            ve
-                            <code class="language-javascript">false</code> Durum olumlu ise <code
-                                class="language-javascript">true</code> durum olumsuz ise <code
-                                class="language-javascript">false</code> değeri döndürür
-                        </p>
+                            <p>Programlama dillerinde veri türleri vardır. Bu veri türleri değerin hangi türde
+                                tutacağını
+                                belirtmek için kullanılır. Bu veri türleri İlkel ve ilkel olmayan veri türü olmak üzere
+                                ikiye
+                                ayrılır.</p>
 
-                        <pre class="rounded block line-numbers"><code class="language-javascript">let trueValue = 1 > 0
+                            <h3 id="İlkel-Veri-Türleri" class="middle-heading">
+                                <a href="#İlkel-Veri-Türleri" class="">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>İlkel (Primitive) Veri Türleri</span>
+                                </a>
+                            </h3>
+
+                            <p>İlkel Veri tipi değiştirilemeyen temel değerdir. Oluşturulduktan sonra değiştirilemez.
+                                Doğrudan
+                                bellekte (RAM) saklanmaktadır. İlkel (Primitive) veri türleri;</p>
+
+                            <ul class="code-editor-list">
+                                <li>String</li>
+                                <li>Number</li>
+                                <li>BigInt</li>
+                                <li>Boolean</li>
+                                <li>Undefined</li>
+                                <li>Null</li>
+                                <li>Symbol</li>
+                            </ul>
+
+                            <h5 id="String" class="sub-heading">
+                                <a href="#String" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>String</span>
+                                </a>
+                            </h5>
+
+
+                            <p>String veri türü metni temsil eder Örnek kullanım şu şekildedir.</p>
+
+                            <pre
+                                class="rounded block line-numbers"><code class="language-javascript">let name = "John" </code></pre>
+
+                            <h5 id="Number" class="sub-heading">
+                                <a href="#Number" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Number</span>
+                                </a>
+
+                            </h5>
+
+                            <p>Number veri türü sayısal veri türüdür. Örnek kullanım bu şekildedir.</p>
+
+                            <pre
+                                class="rounded block line-numbers"><code class="language-javascript">let number = 10 </code></pre>
+
+                            <h5 id="Boolean" class="sub-heading">
+                                <a href="#Boolean" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Boolean</span>
+                                </a>
+                            </h5>
+
+                            <p>Boolean mantıksal veri türüdür. 2 değer alır. <code>true</code>
+                                ve
+                                <code>false</code> Durum olumlu ise <code>true</code> durum olumsuz ise
+                                <code>false</code> değeri döndürür
+                            </p>
+
+                            <pre class="rounded block line-numbers"><code class="language-javascript">let trueValue = 1 > 0
 console.log(trueValue)
-                            
+                                    
 // 1 sayısı sıfır sayısındaan büyüktür sonuç olumlu olduğu için true değeri döndürür.
-                            
+                                    
 let falseValue = 1 > 2
 console.log(falseValue)
-                            
-    
+                                              
 // 1 sayısı 2 sayısından küçüktür sonuç olumsuz false değeri döndürecektir.
 </code></pre>
 
-                        <h5 id="Undefined" class="subitem">Undefined</h5>
+                            <h5 id="Undefined" class="sub-heading">
+                                <a href="#Undefined" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Undefined</span>
+                                </a>
+                            </h5>
 
-                        <p>Undefined (tanımsız) bir değişken bildirilmiş ama değer almamıştır.
-                        </p>
+                            <p>Undefined (tanımsız) bir değişken bildirilmiş ama değer almamıştır.
+                            </p>
 
-                        <pre class="rounded block line-numbers"><code class="language-javascript ">let value
+                            <pre class="rounded block line-numbers"><code class="language-javascript ">let value
 console.log(value)
 </code></pre>
 
-
-                        <h5 id="Null" class="subitem">Null</h3>
+                            <h5 id="Null" class="sub-heading">
+                                <a href="#Null" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Null</span>
+                                </a>
+                            </h5>
 
                             <p>Hiçbir değeri yoktur. Boş veya var olmayan değer anlamı taşır.
                             </p>
@@ -206,121 +271,122 @@ console.log(value)
 console.log(value)
 </code></pre>
 
-                    </div>
+                            <h3 id="Non-Primitive-Data-Types" class="middle-heading">
+                                <a href="#Non-Primitive-Data-Types" class="">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Non Primitive Data Types (İlkel Olmayan Veri Türleri)</span>
+                                </a>
+                            </h3>
 
-                    <!-- <div class="col-12 bg-warning rounded">
+                            <p>İlkel olmayan veri türleri değiştirilebilirdir. Non-Primitive veri türleri; </p>
 
-                        <h3 class="px-2 py-2"><i class="fa-solid fa-triangle-exclamation"></i> Uyarı</h3>
+                            <ul class="code-editor-list">
+                                <li>Array</li>
+                                <li>Object</li>
+                            </ul>
 
-                        <p class="p-2">Bu konular detaylı olup bir sonraki sayfalarda kapsamlı şekilde gösterilecektir.
-                        </p>
+                            <h5 id="Array" class="sub-heading">
+                                <a href="#Array" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Array</span>
+                                </a>
+                            </h5>
 
-                    </div> -->
+                            <p>Array (Dizi) birden fazla değeri tek bir değişken altında toplamayı sağlar.</p>
 
-                    <!-- <div class="col-12" style="background-color: #fff3cd; border-left: 5px solid #ffc107; border-radius: .5rem;">
-                        <h3 class="px-2 py-2 text-dark"><i class="fa-solid fa-triangle-exclamation"></i> Uyarı</h3>
-                        <p class="p-2 text-dark">Bu konular detaylı olup bir sonraki sayfalarda kapsamlı şekilde gösterilecektir.</p>
-                    </div> -->
+                            <pre
+                                class="rounded block line-numbers"><code class="language-javascript ">let arrayValue = ["Justice", "Law", "Equality"]</code></pre>
 
+                            <h5 id="Object" class="sub-heading">
+                                <a href="#Object" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Object</span>
+                                </a>
+                            </h5>
 
-                    <h3 id="Non-Primitive-Data-Types" class="py-2">Non Primitive Data Types (İlkel Olmayan Veri Türleri)
-                    </h3>
-                    <p>İlkel olmayan veri türleri değiştirilebilirdir. Non-Primitive veri türleri; </p>
+                            <p>Object (Nesne) birden fazla değeri depolayan yapıdır.</p>
 
-                    <ul class="code-editor-list">
-                        <li>Array</li>
-                        <li>Object</li>
-                    </ul>
-
-                    <h5 id="Array" class="subitem">Array</h5>
-                    <p>Array (Dizi) birden fazla değeri tek bir değişken altında toplamayı sağlar.</p>
-
-                    <pre class="rounded block line-numbers"><code class="language-javascript ">let arrayValue = ["Justice", "Law", "Equality"]
-</code></pre>
-
-                    <h5 id="Object" class="subitem">Object</h5>
-                    <p>Object (Nesne) birden fazla değeri depolayan yapıdır.</p>
-
-                    <pre class="rounded block line-numbers"><code class="language-javascript ">let objectValue = {
+                            <pre class="rounded block line-numbers"><code class="language-javascript ">let objectValue = {
     name: "John",
-    surname: "Doe",
+    urname: "Doe",
     age: 36,
     hobbies: ["Read Book", "Swimming", "Play PC Game", "Walking"],
     fullName() {
         return `${this.name} ${this.surname}`
     }
 }
-                    
+                            
 console.log(objectValue.fullName())
 // Basit object kullanımı farklı veri türü kullanımına izin verir. 
 </code></pre>
 
-                    <h3 id="Bilgi-Kutusu" class="py-3">Bilgi Kutusu</h3>
+                            <h2 id="İlkel-Olmayan-Veri-Ve-İlkel-Veri-Türü-Değişmez-Özelliği"
+                                class="section-heading">
+                                <a href="#İlkel-Olmayan-Veri-Ve-İlkel-Veri-Türü-Değişmez-Özelliği"
+                                    class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>İlkel olmayan veri ve İlkel veri türü değişmez özelliği</span>
+                                </a>
+                            </h2>
 
-                    <div class="col-12 alert-info-custom rounded px-2 pt-2 mb-5">
-                        <h3 class="py-2 px-2"><i class="fa-solid fa-circle-info"></i> Bilgi</h3>
-                        <p class="py-2 px-2">İlkel olmayan veri ve İlkel veri türü değişmez özelliği gösterimi</p>
-                    </div>
-
-                    <pre class="rounded block line-numbers"><code class="language-javascript">let name = "John"
+                            <pre class="rounded block line-numbers"><code class="language-javascript">let name = "John"
 let newName = name
-
+    
 newName = "Brendan"
-
+    
 console.log(name)
 console.log(newName)
-                        
+                            
 // name değeri John atandı.
 // newName = name bu kod ile John değeri kopyalandı
 // newName ile yeni değer atandı ama sadece newName etkilendi name değişkeni ilk değeri John'a sahip değer kopyalama yapıldı ilk değer değişmez
-                            
-
-
+                                
 let firstName = { name: "John" }
 let newFirstName = firstName
-
+    
 firstName.name = "Brendan"
-
+    
 console.log(firstName.name)
 console.log(newFirstName.name)
-
-
+     
 // firstName değişkeni nesne (object)
 // newFirstName = firstName bu kod firstName değişkeni ile aynı değeri alıyor.
 // iki değişkenin değeri aynı değere sahiptir.
 // firstName değeri değişince, newFirstName değeri de değişmektedir.
 </code></pre>
 
+                            <div class="col-12 alert-warning-custom rounded px-2 pt-2 mb-5">
+                                <h3 class="py-2 px-2"><i class="fa-solid fa-triangle-exclamation"></i> Uyarı</h3>
+                                <p class="py-2 px-2">Bu konular detaylı olup bir sonraki sayfalarda kapsamlı şekilde
+                                    gösterilecektir.</p>
+                            </div>
 
+                            <h3 id="Kaynakça">Kaynakça</h3>
+                            <ul>
+                                <li><a href="https://flexiple.com/javascript/undefined-vs-null-javascript"
+                                        target="_blank">https://flexiple.com/javascript/undefined-vs-null-javascript</a>
+                                </li>
+
+                                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+                                        target="_blank">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array</a>
+                                </li>
+                                <li><a href="https://academy.patika.dev/courses/javascript/object-nesne-nedir-nasil-olusturulur"
+                                        target="_blank">https://academy.patika.dev/courses/javascript/object-nesne-nedir-nasil-olusturulur</a>
+                                </li>
+
+                            </ul>
+
+
+
+                        </div>
+
+                    </div>
                 </div>
 
-                <h3 id="Uyarı" class="py-3">Uyarı</h3>
-
-                <div class="col-12 alert-warning-custom rounded px-2 pt-2 mb-5">
-                    <h3 class="py-2 px-2"><i class="fa-solid fa-triangle-exclamation"></i> Uyarı</h3>
-                    <p class="py-2 px-2">Bu konular detaylı olup bir sonraki sayfalarda kapsamlı şekilde
-                        gösterilecektir.</p>
-                </div>
-
-                <h3 id="Kaynakça">Kaynakça</h3>
-                <ul>
-                    <li><a href="https://flexiple.com/javascript/undefined-vs-null-javascript"
-                            target="_blank">https://flexiple.com/javascript/undefined-vs-null-javascript</a></li>
-
-                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
-                            target="_blank">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array</a>
-                    </li>
-                    <li><a href="https://academy.patika.dev/courses/javascript/object-nesne-nedir-nasil-olusturulur"
-                            target="_blank">https://academy.patika.dev/courses/javascript/object-nesne-nedir-nasil-olusturulur</a>
-                    </li>
-
-                </ul>
-
-            </div>
+            </section>
 
         </div>
-
-    </section>
+    </main>
 
     <button class="scroll-top-btn" id="scroll-btn">
         <i class="fa-solid fa-chevron-up"></i>
@@ -373,7 +439,6 @@ console.log(newFirstName.name)
 
 
     <script type="module" src="/js/main.js"></script>
-
 
 </body>
 

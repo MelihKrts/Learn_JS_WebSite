@@ -13,7 +13,8 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link id="prism-light" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-solarizedlight.css" rel="stylesheet" />
+    <link id="prism-light" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-solarizedlight.css"
+        rel="stylesheet" />
 
 
     <link id="prism-dark" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
@@ -102,162 +103,338 @@
 
             <section class="col-12 col-lg-9 px-4 pt-4">
 
-                <div class="overflow-hidden  pt-0 pb-4">
-                    <img src="./javascript-runcode.jpg" class="w-100 img-fluid  shadow">
-                    <p class="text-center py-2">JavaScript, Node.js ve Popüler 5 tarayıcı logosu (Opera, M.Edge, G.Chrome, Firefox, Safari) mevcut. Javascript kodlarını çalıştırma yazıyor </p>
-                </div>
+                <figure class="figure text-center w-100">
+                    <img src="./javascript-runcode.jpg" class="figure-img img-fluid rounded shadow"
+                        alt="JavaScript için NPM, Yarn ve PNPM paket yönetim sistemleri karşılaştırması">
+                    <figcaption class="figure-caption custom-caption">
+                        JavaScript, Node.js ve Popüler 5 tarayıcı logosu (Opera, M.Edge, G.Chrome, Firefox, Safari)
+                        mevcut. Javascript kodlarını çalıştırma yazıyor
+                    </figcaption>
+                </figure>
 
                 <div class="container-xl">
 
                     <div class="row">
-        
+
                         <div class="col rounded  mt-1 mb-3">
-        
+
                             <div id="table-of-contents">
                                 <div class="toc-title w-100">
                                     <h3 class="pt-3 pb-1 px-3">İçindekiler</h3>
                                 </div>
-        
+
                                 <ul>
                                     <li><a href="#JavaScript-Kodu-Nasıl-Çalışır">JavaScript Kodu Nasıl Çalışır</a>
                                         <ul>
+                                            <li><a href="#Event-Loop">Event Loop (Olay Döngüsü)</a></li>
+                                            <ul>
+                                                <li><a href="#Call-Stack">Call Stack (Çağrı Yığını)</a></li>
+                                                <li><a href="#Web-API">Web API</a></li>
+                                                <li><a href="#Task-Queue">Task Queue (Makro Görev Kuyruğu)</a></li>
+                                                <li><a href="#Microtask-Queue">Microtask Queue (Mikro Görev Kuyruğu)</a>
+                                                </li>
+                                            </ul>
+
                                             <li><a href="#Derleyici">Derleyici (Compiler)</a></li>
                                             <li><a href="#Yorumlayıcı">Yorumlayıcı (interpreter)</a></li>
                                             <li><a href="#JIT">JIT (Just In Time)</a></li>
                                             <li><a href="#JavaScript-Motoru">JavaScript Motoru</a></li>
-                                            <li><a href="#Call-Stack">Call Stack (Çağrı Yığını)</a></li>
-                                            <li><a href="#Event-Loop">Event Loop (Olay Döngüsü)</a></li>
-                                            <li><a href="#Web-API">Web API</a></li>
-                                            <li><a href="#Task-Queue">Task Queue (Görev Kuyruğu)</a></li>
-        
-        
-        
+
                                         </ul>
                                     </li>
                                     <li><a href="#Node.Js-Neden-Gerekli">Node.Js Neden Gerekli ? </a></li>
                                     <li><a href="#Yorum-Satırı">Yorum Satırı</a></li>
-                                    <li><a href="#Tarayıcıda-JavaScript-Çalıştırma">Tarayıcıda JavaScript Çalıştırma</a></li>
+                                    <li><a href="#Tarayıcıda-JavaScript-Çalıştırma">Tarayıcıda JavaScript Çalıştırma</a>
+                                    </li>
                                     <li><a href="#Node.Js-Üzerinde-Çalıştırma">Node.Js Üzerinde Çalıştırma</a></li>
                                     <li><a href="#Dosyalar">Dosyalar</a></li>
-        
+
                                     <li><a href="#Kaynakça">Kaynakça</a></li>
-        
+
                                 </ul>
                             </div>
-        
+
                         </div>
-        
-        
+
                         <div class="col-12 pb-4">
-                            
-                            <h2 id="JavaScript-Kodu-Nasıl-Çalışır" class="section-heading d-flex align-items-center">
-                                <a href="#JavaScript-Kodu-Nasıl-Çalışır" class="d-flex align-items-center text-decoration-none">
+                            <figure class="figure text-center w-100">
+                                <img src="./how-to-run-jscode.jpg" class="figure-img img-fluid rounded shadow"
+                                    alt="JavaScript kodu nasıl çalışır yazmakta, JavaScript, Google Chrome ve V8(JavaScript motoru) bulunmakta">
+                                <figcaption class="figure-caption custom-caption">
+                                    JavaScript kodu nasıl çalışır yazmakta, JavaScript, Google Chrome ve V8(JavaScript
+                                    motoru) bulunmakta
+                                </figcaption>
+                            </figure>
+
+                            <h2 id="JavaScript-Kodu-Nasıl-Çalışır" class="section-heading">
+                                <a href="#JavaScript-Kodu-Nasıl-Çalışır" class="heading-link">
                                     <i class="fa-solid fa-hashtag me-2"></i>
                                     <span>JavaScript Kodu Nasıl Çalışır</span>
                                 </a>
                             </h2>
-        
-                            <p>JavaScript yorumlayıcıları web tarayıcı (Google Chrome, Mozilla vb) entegre edilmiştir. Bu sayede
-                                tarayıcılar kodu anlar ve yürütülme işlemini yapar. JavaScript kodlarının özelliğinden bir
-                                tanesi <b><i> tek iş parçacıklı (single-threaded), senkrondur, ama asenkron davranışlara da
+
+                            <p>JavaScript yorumlayıcıları web tarayıcı (Google Chrome, Mozilla vb) entegre edilmiştir.
+                                Bu sayede
+                                tarayıcılar kodu anlar ve yürütülme işlemini yapar. JavaScript kodlarının özelliğinden
+                                bir
+                                tanesi <b><i> tek iş parçacıklı (single-threaded), senkrondur, ama asenkron davranışlara
+                                        da
                                         sahiptir. Kodları adım adım çalıştırmasıdır.</i></b></p>
-        
-                            <pre class="rounded block line-numbers"><code class="language-javascript">function greetings(name) {
-            console.log("Merhaba", name)
-        }
+
+                            <pre class="rounded block line-numbers shadow-sm code-block-hover"><code class="language-javascript">function greetings(name) {
+    console.log("Merhaba", name)
+}
                                 
-        let name = "Brendan"
-        greetings(name)
-        console.log("Bitti")
+let name = "Brendan"
+greetings(name)
+console.log("Bitti")
         
-        // İlk adımda fonksiyon tanımlanıyor greetings adlı fonksiyon kaydedilir.
-        // name adlı değişlen tanımlanmıştır.
-        // Bu adımda ilk adımda tanımlanan fonksiyon bu aşamada çalıştırılır.
-        
-        
-        // Çalıştırılan fonksiyon ekrana Merhaba Brendan çıktısını verir.
-        // Son aşama ile ekrana Bitti çıktı verilir ve işlem sonlanır.
-        </code></pre>
-        
-                            <h6>Asenkron Kod Örneği</h6>
-        
-                            <pre class="rounded block line-numbers"><code class="language-javascript">console.log("1. İşlem başladı");
-        
-        setTimeout(() => {
-            console.log("2. Asenkron işlem (2 saniye sonra çalıştı)");
-        }, 2000);
-            
-        console.log("3. İşlem bitti");
-        
-        // setTimeout asenkron yapıdır. Gecikmeli çalışır. 
-        </code></pre>
-        
-                            <p>JavaScript'in derlenmiş dil veya yorumlanmış dil olduğu konusunda tartışma mevcuttur. Ağırlıklı
-                                olarak derlenmiş dil fikri daha öne çıkmaktadır. Konu anlatıcı bu kısmı detaylı araştırma ve
+// İlk adımda fonksiyon tanımlanıyor greetings adlı fonksiyon kaydedilir.
+// name adlı değişlen tanımlanmıştır.
+// Bu adımda ilk adımda tanımlanan fonksiyon bu aşamada çalıştırılır.
+               
+// Çalıştırılan fonksiyon ekrana Merhaba Brendan çıktısını verir.
+// Son aşama ile ekrana Bitti çıktı verilir ve işlem sonlanır.
+</code></pre>
+
+
+                            <p>JavaScript'in derlenmiş dil veya yorumlanmış dil olduğu konusunda tartışma mevcuttur.
+                                Ağırlıklı
+                                olarak derlenmiş dil fikri daha öne çıkmaktadır. Konu anlatıcı bu kısmı detaylı
+                                araştırma ve
                                 buna göre cevap verilmesi doğru olduğundan bu konu hakkında iddia da bulunmayıp kaynakça
                                 kısmında paylaşmıştır. </p>
 
-                                <h5 id="Event-Loop" class="sub-heading d-flex align-items-center gap-2">
-                                    <a href="#Event-Loop" class="text-decoration-none text-primary">
-                                        <i class="fa-solid fa-hashtag"></i>
-                                    </a>
+                            <figure class="figure text-center w-100">
+                                <img src="./event-loop.webp" class="figure-img img-fluid rounded shadow"
+                                    alt="JavaScript event loop döngüsü hakkında">
+                                <figcaption class="figure-caption custom-caption">
+                                    JavaScript event loop döngüsü hakkında
+                                    <a href="https://frontendlead.com/trivia-questions/understanding-javascript-event-loop"
+                                        target="_blank"><i class="fa-solid fa-up-right-from-square ms-1"></i> resim
+                                        kaynağı</a>
+                                </figcaption>
+                            </figure>
+
+                            <h3 id="Event-Loop" class="middle-heading">
+                                <a href="#Event-Loop" class="">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
                                     <span>Event Loop (Olay Döngüsü)</span>
-                                </h5> 
+                                </a>
+                            </h3>
+
+                            <p>Event Loop (Olay Döngüsü) kısaca Javascript'in asenkron işlemleri yapmaya yarayan
+                                sistemdir. JavaScript yapısı gereği tek işlem yapabilmektedir aynı anda iki işlemi
+                                yapamaz. Olay döngüsü ile ana işlemi engellemeden birden fazla görevin yapılmasını
+                                sağlar.</p>
+
+                            <h5 id="Call-Stack" class="sub-heading">
+                                <a href="#Call-Stack" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Call Stack</span>
+                                </a>
+                            </h5>
+
+                            <p>Call Stack (Çağrı yığını) JavaScript motorunun birden fazla işlevi çağıran koddaki yerini
+                                takip
+                                eder. </p>
+                            <pre class="rounded block line-numbers shadow-sm code-block-hover"><code class="language-javascript">function greet() {
+    sayHi() // 2.adım
+}
+                            
+function sayHi() {
+    console.log("Merhaba Arkadaşım 🖐🏻") // 3.adım
+}
+                            
+greet() // 1.adım
         
-                            <h5 id="Derleyici" class="sub-heading">Derleyici (Compiler)</h5>
-                            <p>Derleyici bir programlama dilini makine tarafından anlayacağı duruma çevirir. Çevirilen dil
+// greet fonksiyon çağrılır ve Call stack eklenir
+// sayHi() fonksiyonu greet fonksiyonu çağrılır ve stack eklenir.
+// console.log("Merhaba Arkadaşım 🖐🏻") çalışır
+// sayHi() işlevi biter ve stack'ten çıkar
+// greet() işlevi biter ve stack'ten çıkar</code>
+</pre>
+
+                            <h5 id="Web-API" class="sub-heading">
+                                <a href="#Web-API" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Web API (Tarayıcı API)</span>
+                                </a>
+
+                            </h5>
+
+                            <p>Web API (Tarayıcı API) tarayıcı tarafından sağlanan ortamın bir parçasıdır. JavaScript
+                                kullanarak
+                                tarayıcının özellikleri ile etkileşime girer. Web API özelliği JavaScript'in asenkron
+                                işlemlerin
+                                gerçekleştirmesini sağlar.</p>
+
+                            <h5 id="Task-Queue" class="sub-heading"> <a href="#Task-Queue" class="heading-link">
+                                    <i class="fa-solid fa-hashtag"></i>
+                                    <span>Task Queue (Görev Kuyruğu)</span>
+                                </a></h5>
+
+                            <p>Task Queue (görev kuyruğu, görev listesi, veya mesaj kuyrukları) bekletilen işlemlerin
+                                sırasını
+                                tutar.</p>
+
+                            <pre
+                                class="rounded block line-numbers language-javascript  shadow-sm code-block-hover"><code class="language-javascript">console.log("Merhaba")
+            
+setTimeout(() => {
+    console.log("Ben setTimeout içindeyim")
+}, 0) 
+
+// Tarayıcı Web API gönderir asenkron işlemdir. Callback Queue (Geri Çağrı Kuyruğu) Asenkron kodun itilmesi ve yürütülmesini beklediği yer burasıdır.
+            
+console.log("Görüşürüz")
+            
+// Merhaba ve Görüşürüz hemen çalışır.
+// 0 milisaniye ayarlanmış olsa bile Call Stack boşalana kadar bekler. setTimeout'un daha sonra yürütülmek üzere Task Queue kuyruğuna yerleştirmesi Web API olmasıdır.</code></pre>
+
+                            <p>Kodun Çıktısı bu şekilde olacaktır.</p>
+                            <pre class="rounded block line-numbers shadow-sm code-block-hover"><code class="language-text">Merhaba
+Görüşürüz
+Ben setTimeout içindeyim</code></pre>
+
+                            <h5 id="Microtask-Queue" class="sub-heading">
+                                <a href="#Microtask-Queue" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Microtask Queue (Mikro Görev Kuyruğu)</span>
+                                </a>
+                            </h5>
+
+                            <p>
+                                Mikro görev kuyruğu (Microtask Queue), mikro görevlerin listesini tutar. Microtask Queue <b><i>yüksek önceliğe sahiptir</i></b>. 
+                                <code>Promise</code> ve <code>MutationObserver</code> gibi işlemler bu kuyruğa görev ekler. 
+                                Bu görevler, <b>olay döngüsünün (Event Loop) her yinelemesi tamamlandıktan hemen sonra</b> yürütülür.
+                            </p>
+                            
+
+                            <pre class="rounded block line-numbers shadow-sm code-block-hover"><code class="language-javascript">console.log(1)
+
+setTimeout(() => {
+    console.log("2 (setTimeout)")
+}, 0)
+                                
+Promise.resolve().then(() => {
+    console.log("3 (Promise)")
+})
+                                
+console.log(4)</code></pre>
+                            <h6>Kod Çıktı</h6>
+                            <pre class="rounded block line-numbers shadow-sm code-block-hover"><code class="language-javascript">1
+4
+3 (Promise)
+2 (setTimeout)
+
+// console.log("1") ve console.log("4"), hemen çalışır çünkü bunlar call stack üzerindedir.
+// Promise.then(...), Microtask Queue'ya gider ve call stack boşalınca hemen çalışır.
+// setTimeout(...), Macrotask (Callback/Task Queue) kuyruğuna gider ve en sona bırakılır.
+</code></pre>
+
+
+                            <h6 class="special-title">Asenkron Programlama</h6>
+                            <p>Eşzamansız Programlama ilgili programın çalışan programın bitmesini beklerken diğer
+                                kodları çalıştırmaya devam etmesidir.</p>
+
+                            <pre class="rounded block line-numbers shadow-sm code-block-hover"><code class="language-javascript">console.log("1. İşlem başladı");
+
+setTimeout(() => {
+    console.log("2. Asenkron işlem (2 saniye sonra çalıştı)");
+}, 2000);
+                                                                
+console.log("3. İşlem bitti");
+                                                                
+// setTimeout asenkron yapıdır. Gecikmeli çalışır. </code></pre>
+
+
+                            <h5 id="Derleyici" class="sub-heading">
+                                <a href="#Derleyici" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Derleyici (Compiler)</span>
+                                </a>
+                            </h5>
+
+                            <p>Derleyici bir programlama dilini makine tarafından anlayacağı duruma çevirir. Çevirilen
+                                dil
                                 <b>binary (ikili) biçimidir. </b>
                             </p>
-        
-                            <h5 id="Yorumlayıcı" class="sub-heading">Yorumlayıcı (interpreter)</h5>
-        
-                            <p>Bir programlama dilinde yazılmış kodu <i>Derleyici</i> kıyasla makine koduna dönüştürmeden
-                                yürütür. Kodları satır satır, sonraki satırı yürütmeden önce makine talimatlarına çevirir.</p>
-        
-                            <h5 id="JIT" class="sub-heading">JIT (Just In Time) </h5>
-                            <p>JIT (Tam Zamanında Derleme) anlamına gelir. Kod çalışma zamanında ihtiyaç duyuldukça derlenir.
-                                JavaScript tarayıcıda çalışırken <b><i>Yorumlayıcı (interpreter)</i></b> tarafından satır satır
+
+                            <h5 id="Yorumlayıcı" class="sub-heading">
+                                <a href="#Yorumlayıcı" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Yorumlayıcı (interpreter)</span>
+                                </a>
+                            </h5>
+
+                            <p>Bir programlama dilinde yazılmış kodu <i>Derleyici</i> kıyasla makine koduna
+                                dönüştürmeden
+                                yürütür. Kodları satır satır, sonraki satırı yürütmeden önce makine talimatlarına
+                                çevirir.</p>
+
+                            <h5 id="JIT" class="sub-heading">
+                                <a href="#JIT" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>JIT (Just In Time)</span>
+                                </a>
+                            </h5>
+
+                            <p>JIT (Tam Zamanında Derleme) anlamına gelir. Kod çalışma zamanında ihtiyaç duyuldukça
+                                derlenir.
+                                JavaScript tarayıcıda çalışırken <b><i>Yorumlayıcı (interpreter)</i></b> tarafından
+                                satır satır
                                 çalışır. JavaScript Motorlarından Google'nin V8 Motoru; </p>
-        
+
                             <ul class="code-editor-list">
                                 <li>Kod yorumlanır – Hızlı başlamak için hemen çalıştırılır.</li>
-        
+
                                 <li>Sık kullanılan kodlar tespit edilir – Bu kodlar "hot code" olarak adlandırılır.</li>
-                                <li>JIT devreye girer – Bu sık kullanılan kısımlar makine koduna dönüştürülür ve çok daha hızlı
+                                <li>JIT devreye girer – Bu sık kullanılan kısımlar makine koduna dönüştürülür ve çok
+                                    daha hızlı
                                     çalıştırılır.</li>
                             </ul>
-        
+
                             <p>JIT'ın optimasyonu hakkında ufak kod örneği;</p>
-                            <pre class="rounded block line-numbers"><code class="language-javascript">function multiply(a, b) {
-            return a * b
-        }
-                            
-        console.time("İlk Çalışma")
-        for (let i = 0; i < 1_000_000; i++) {
-            multiply(10, 20)
-        }
-        console.timeEnd("İlk Çalışma")
-                            
-        
-        console.time("İkinci İşlem")
-        for (let i = 0; i < 1_000_000; i++) {
-            multiply(10, 20)
-        }
-        console.timeEnd("İkinci İşlem")
-        
-        // İlk aşamada Multiply fonksiyonu çağrılıp çalışmakta
-        // Tarayıcı Multiply fonksiyonu tekrarlandığını fark eder (hot code)
-        // JIT devreye girerek fonksiyonu optimize edip makine koduna çevirir bu sayede kod hızlı çalışır.
-        // İkinci kod bloğu daha hızlı çalışacaktır.
-        </code></pre>
-        
-                            <h5 id="JavaScript-Motoru" class="sub-heading">JavaScript Motoru</h5>
-        
-                            <p>JavaScript motoru (JS motor) JavaScript kodunu yorumlar ve yürütür. Modern JavaScript motorları,
-                                JavaScript kodunu bilgisayar işlemcisi tarafından yürütülen makine koduna dönüştürmek için JIT
-                                kullanır. JavaScript motoru genellikle istemci tarafında kodu çalıştırmak için kullanılır.
+                            <pre class="rounded block line-numbers shadow-sm code-block-hover"><code class="language-javascript">function multiply(a, b) {
+    return a * b
+}
+
+console.time("İlk Çalışma")
+for (let i = 0; i < 1_000_000; i++) {
+    multiply(10, 20)
+}
+console.timeEnd("İlk Çalışma")
+
+
+console.time("İkinci İşlem")
+for (let i = 0; i < 1_000_000; i++) {
+    multiply(10, 20)
+}
+console.timeEnd("İkinci İşlem")
+
+// İlk aşamada Multiply fonksiyonu çağrılıp çalışmakta
+// Tarayıcı Multiply fonksiyonu tekrarlandığını fark eder (hot code)
+// JIT devreye girerek fonksiyonu optimize edip makine koduna çevirir bu sayede kod hızlı çalışır.
+// İkinci kod bloğu daha hızlı çalışacaktır.
+</code></pre>
+
+                            <h5 id="JavaScript-Motoru" class="sub-heading">
+                                <a href="#JavaScript-Motoru" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>JavaScript Motoru</span>
+                                </a>
+                            </h5>
+
+                            <p>JavaScript motoru (JS motor) JavaScript kodunu yorumlar ve yürütür. Modern JavaScript
+                                motorları,
+                                JavaScript kodunu bilgisayar işlemcisi tarafından yürütülen makine koduna dönüştürmek
+                                için JIT
+                                kullanır. JavaScript motoru genellikle istemci tarafında kodu çalıştırmak için
+                                kullanılır.
                                 Node.js tarafında da kullanılabilir. Birden çok JavaScript motoru
-                                bulunmaktadır. Çoğunlukla ön plana çıkan JavaScript motorları şunlardır; Diğer motorlar hakkında
+                                bulunmaktadır. Çoğunlukla ön plana çıkan JavaScript motorları şunlardır; Diğer motorlar
+                                hakkında
                                 detaylı bilgi için <a
                                     href="https://gist.github.com/guest271314/bd292fc33e1b30dede0643a283fadc6a"
                                     target="_blank">buradan</a> inceleyebilirsiniz
@@ -266,273 +443,209 @@
                                 <li>JavaScriptCore (Apple)</li>
                                 <li>SpiderMonkey (Mozilla)</li>
                                 <li>Presto (Opera (2013 yılı itibari ile Blink Motorunu kullanmaktadır.))</li>
-                                <li>Chakra (Internet Explorer - Microsoft Edge (Microsoft Edge Chromium tabanlı geçiş yapıldı
+                                <li>Chakra (Internet Explorer - Microsoft Edge (Microsoft Edge Chromium tabanlı geçiş
+                                    yapıldı
                                     kaynakça bölümünde haberi inceleyebilirsiniz))</li>
                             </ul>
                             </p>
-        
-                            <h5 id="Call-Stack" class="sub-heading">Call Stack</h5>
-                            
-        
-                            <p>Call Stack (Çağrı yığını) JavaScript motorunun birden fazla işlevi çağıran koddaki yerini takip
-                                eder. </p>
-                            <pre class="rounded block line-numbers"><code class="language-javascript">function greet() {
-            sayHi() // 2.adım
-        }
-                            
-        function sayHi() {
-            console.log("Merhaba Arkadaşım 🖐🏻") // 3.adım
-        }
-                            
-        greet() // 1.adım
-        
-        // greet fonksiyon çağrılır ve Call stack eklenir
-        // sayHi() fonksiyonu greet fonksiyonu çağrılır ve stack eklenir.
-        // console.log("Merhaba Arkadaşım 🖐🏻") çalışır
-        // sayHi() işlevi biter ve stack'ten çıkar
-        // greet() işlevi biter ve stack'ten çıkar</code>
-        </pre>
-        
 
-                            <h5 id="Event-Loop" class="sub-heading d-flex align-items-center gap-2">
-                                <a href="#Event-Loop" class="text-decoration-none text-primary">
-                                    <i class="fa-solid fa-hashtag"></i>
+
+                            <h2 id="Node.Js-Neden-Gerekli" class="section-heading">
+                                <a href="#Node.Js-Neden-Gerekli" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Node.Js Neden Gerekli ?</span>
                                 </a>
-                                <span>Event Loop (Olay Döngüsü)</span>
-                            </h5>                            
-        
-        
-        
-                            <p>Event Loop (Olay Döngüsü) JavaScript'in tek iş parçacıklı (single-threaded) olmasına rağmen
-                                asenkron işlemleri gerçekleştirmesini sağlayan döngüdür. Bu döngü içinde <b><i><a
-                                            href="#Call-Stack">Call Stack</a>, <a href="#Web-API">Web API's</a> ve <a
-                                            href="#Task-Queue">Task Queue (Görev Kuyruğu)</a></i></b>
-                                çalışarak JavaScript'in asenkron çalışması aşamasına yardımcı olur. </p>
-        
-                            <h5 id="Web-API" class="d-flex align-items-center">
-                                <a href="#Web-API" class="d-flex align-items-center pe-2">
-                                    <i class="fa-solid fa-hashtag"></i>
-                                </a>
-                                Web API (Tarayıcı API)
-                            </h5>
-        
-                            <p>Web API (Tarayıcı API) tarayıcı tarafından sağlanan ortamın bir parçasıdır. JavaScript kullanarak
-                                tarayıcının özellikleri ile etkileşime girer. Web API özelliği JavaScript'in asenkron işlemlerin
-                                gerçekleştirmesini sağlar.</p>
-        
-                            <h5 id="Task-Queue" class="d-flex align-items-center"> <a href="#Task-Queue"
-                                    class="d-flex align-items-center pe-2">
-                                    <i class="fa-solid fa-hashtag"></i>
-                                </a>Task Queue (Görev Kuyruğu)</h5>
-        
-                            <p>Task Queue (görev kuyruğu, görev listesi, veya mesaj kuyrukları) bekletilen işlemlerin sırasını
-                                tutar.</p>
-        
-                            <pre
-                                class="rounded block line-numbers language-javascript"><code class="language-javascript">console.log("Merhaba")
-        
-        setTimeout(() => {
-            console.log("Ben setTimeout içindeyim")
-        }, 0) // Tarayıcı Web API gönderir asenkron işlemdir. Callback Queue (Geri Çağrı Kuyruğu) Asenkron kodun itilmesi ve yürütülmesini beklediği yer burasıdır.
-        
-        console.log("Görüşürüz")
-        
-        // Merhaba ve Görüşürüz hemen çalışır.
-        // 0 milisaniye ayarlanmış olsa bile Call Stack boşalana kadar bekler. setTimeout'un daha sonra yürütülmek üzere Task Queue kuyruğuna yerleştirmesi Web API olmasıdır.</code></pre>
-        
-                            <p>Kodun Çıktısı bu şekilde olacaktır.</p>
-                            <pre class="rounded block line-numbers"><code class="language-text">Merhaba
-        Görüşürüz
-        Ben setTimeout içindeyim</code></pre>
-        
-        
-        
-        
-                            <!-- 
-        
-                            <p>JavaScript tarayıcıya özel yapılmış olsa da Node.js JavaScript kullanır. Tarayıcıya özel çalışan JavaScript çalışmaları ile Node.Js uygulamaları aşırı farklıdır. Node.js Modül sistemleri (ileri konuda anlatılacak) desteklemesi avantaj sağlıyor. ECMAScript sürüm destekleri de ön plana çıkarıyor. Modern web sitelerinde bağımlılık yönetimi (NPM vb) gereklidir. JavaScript kodunu istemci ve sunucuda çalıştırabilirsiniz. </p>
-        
-                            <p>React ve/ veya farklı JavaScript library/framework için Webpack, Babel, ESLint linter için faydalıdır. Bununla birlikte Modern/ Büyük ön uç veya arka uç projelerde paket güncellemeleri, kurulumunda, derleme, build almada katkısı olacaktır. </p> -->
-        
-                            <h3 id="Node.Js-Neden-Gerekli" class="d-flex align-items-center"> <a href="#Node.Js-Neden-Gerekli"
-                                    class="d-flex align-items-center pe-2">
-                                    <i class="fa-solid fa-hashtag"></i>
-                                </a>Node.Js Neden Gerekli ?</h3>
-        
-                            <div class="alert alert-info border-start border-4 my-5 border-primary d-flex align-items-start gap-3"
+                            </h2>
+
+                            <div class="alert alert-info border-start border-4 mb-5 border-primary d-flex align-items-start gap-3"
                                 role="alert">
                                 <i class="fa-solid fa-circle-info fa-lg mt-1 text-primary"></i>
                                 <div>
                                     <p>
                                         JavaScript, başlangıçta tarayıcıda çalışmak üzere geliştirilmiştir. Ancak
-                                        <strong>Node.js</strong> sayesinde JavaScript'i sunucu tarafında da kullanmak mümkün
+                                        <strong>Node.js</strong> sayesinde JavaScript'i sunucu tarafında da kullanmak
+                                        mümkün
                                         hale geldi. Node.js ile tarayıcıdan bağımsız çalışan JavaScript uygulamaları
                                         geliştirilebilir.
                                     </p>
                                     <p>
                                         Node.js’in <strong>modül sistemi</strong> (ileride detaylı anlatılacak) ve
-                                        <strong>ECMAScript</strong> sürüm desteği, geliştiricilere büyük esneklik sağlar. Modern
+                                        <strong>ECMAScript</strong> sürüm desteği, geliştiricilere büyük esneklik
+                                        sağlar. Modern
                                         web projelerinde <strong>NPM</strong> gibi bağımlılık yönetim sistemleri kritik
-                                        önemdedir. Bu sayede JavaScript kodları hem istemcide (client-side) hem de sunucuda
+                                        önemdedir. Bu sayede JavaScript kodları hem istemcide (client-side) hem de
+                                        sunucuda
                                         (server-side) çalıştırılabilir.
                                     </p>
                                     <p class="mb-0">
                                         Ayrıca, <strong>React</strong> ve benzeri framework’lerle çalışırken;
-                                        <strong>Webpack</strong>, <strong>Babel</strong>, <strong>ESLint</strong> gibi araçlar
+                                        <strong>Webpack</strong>, <strong>Babel</strong>, <strong>ESLint</strong> gibi
+                                        araçlar
                                         Node.js ile entegre çalışır. Özellikle büyük ölçekli projelerde kurulum, derleme
                                         (build), test ve güncelleme süreçlerinde büyük kolaylık sağlar.
                                     </p>
                                 </div>
                             </div>
-        
-                            <h3 id="Yorum-Satırı" class="d-flex align-items-center"> <a href="#Yorum-Satırı"
-                                    class="d-flex align-items-center pe-2">
-                                    <i class="fa-solid fa-hashtag"></i>
-                                </a>Yorum Satırı</h3>
-        
-                            <p>Kod yazarken bazı kod bloklarını yürütmemesi için, veya ilgili kod ile alakalı bilgi verirken
-                                kullanılması önemlidir. Yorum satırına alınan kod yürütülmez. Tek satırlı JavaScript'te tek
-                                satırlı yorum satırı <code>//</code> çok satırlı yorum satırı <code>/* */</code> işareti ile
+
+                            <h2 id="Yorum-Satırı" class="section-heading">
+                                <a href="#Yorum-Satırı" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Yorum Satırı</span>
+                                </a>
+                            </h2>
+
+                            <p>Kod yazarken bazı kod bloklarını yürütmemesi için, veya ilgili kod ile alakalı bilgi
+                                verirken
+                                kullanılması önemlidir. Yorum satırına alınan kod yürütülmez. Tek satırlı JavaScript'te
+                                tek
+                                satırlı yorum satırı <code>//</code> çok satırlı yorum satırı <code>/* */</code> işareti
+                                ile
                                 yapılır. Aşağıda gösterilmiştir.</p>
+
+                            <pre class="rounded block line-numbers shadow-sm code-block-hover"><code class="language-javascript">console.log("Merhaba Dünya 🖐🏻")
+
+// console.log("Bu kod çalışmayacak") Tek satırlı yorum alanı
         
-                            <pre class="rounded block line-numbers"><code class="language-javascript">console.log("Merhaba Dünya 🖐🏻")
-        // Tek satırlı yorum satırı örneği
+/*
         
-        /*
+Çok satırlı yorum satırı
+Programlamaya başlarken neden Merhaba Dünya yazılır?
+Kodlamaya yeni başlayanlara güçlü ve motive kaynağı verir. Sizin İlk Hello World veya Merhaba Dünya'yı hangi programlamdilinde yazdınız? 
         
-        Çok satırlı yorum satırı
-        Programlamaya başlarken neden Merhaba Dünya yazılır?
-        Kodlamaya yeni başlayanlara güçlü ve motive kaynağı verir. Sizin İlk Hello World veya Merhaba Dünya'yı hangi programlama dilinde yazdınız? 
+Merhaba Dünya kökeni Bilgisayar Bilimci Brian W. Kernighan ve Dennis M. Ritchie The C Programming Language kitabında, programlama dilinde hello world kodunu yazmıştır. Kitabın linki aşağıdadır.
+https://scispace.com/pdf/the-c-programming-language-13ln3iidy9.pdf
+Hem genel kültür hem çoklu satır kullanımı örnek 😃
         
-        Merhaba Dünya kökeni Bilgisayar Bilimci Brian W. Kernighan ve Dennis M. Ritchie The C Programming Language kitabında, C programlama dilinde hello world kodunu yazmıştır. Kitabın linki aşağıdadır.
-        https://scispace.com/pdf/the-c-programming-language-13ln3iidy9.pdf
-        Hem genel kültür hem çoklu satır kullanımı örnek 😃
-        
-        */
-        
-        console.log("Çadırımın Üstüne Şıp Diye Damladı")
-        console.log("Οπισθοδρομική Κομπανία - Ράμπι ράμπι")
-        
-        // console.log("Οπισθοδρομική Κομπανία - Ράμπι ράμπι") tek satıra alınmış kod örneği bu kod çalışmayacaktır.
-        
-        /*
-        
-        console.log() Bu kod ile konsola mesaj veya çıktı verilir.
-        bu kod yorum satırında olduğu için çalışmaz. 
-        
-        */
-        
-        </code></pre>
-        
-        
-                            <h3 id="Tarayıcıda-JavaScript-Çalıştırma" class="d-flex align-items-center"> <a
-                                    href="#Tarayıcıda-JavaScript-Çalıştırma" class="d-flex align-items-center pe-2">
-                                    <i class="fa-solid fa-hashtag"></i>
-                                </a>Tarayıcıda JavaScript Çalıştırma</h3>
-        
-                            <p>Tarayıcıda JavaScript çalıştırmak için <code>HTML</code> sayfası içine <code>.js uzantılı</code>
-                                JavaScript dosyası eklenmelidir. HTML içinde JavaScript 3 farklı şekilde eklenebilir bunlar;
+*/
+</code></pre>
+
+                            <h2 id="Tarayıcıda-JavaScript-Çalıştırma" class="section-heading">
+                                <a href="#Tarayıcıda-JavaScript-Çalıştırma" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Tarayıcıda JavaScript Çalıştırma</span>
+                                </a>
+                            </h2>
+
+
+                            <p>Tarayıcıda JavaScript çalıştırmak için <code>HTML</code> sayfası içine
+                                <code>.js</code> uzantılı
+                                JavaScript dosyası eklenmelidir. HTML içinde JavaScript 3 farklı şekilde eklenebilir
+                                bunlar;
                             </p>
-        
+
                             <ul class="code-editor-list">
                                 <li>Harici JavaScript (External Script)</li>
                                 <li>Dahili JavaScript (Internal Script)</li>
                                 <li>Satır içi JavaScript (Inline Script)</li>
                             </ul>
-        
-                            <p>JavaScript kodunu tarayıcıda görüntülemek için <kbd>Ctrl + Shift + J</kbd> ve/veya <kbd>F12</kbd>
-                                tuş kombinasyonu üzerinden tarayıcı konsolu açılır. Websitesinin hızına etki etmemesi için <code>HTML</code> sayfalarında <code>body</code> etiketi kapanmadan önce yerleştirmeniz daha iyi olacaktır. Bir sayfada birden fazla harici JavaScript dosyasını ekleyebilirsiniz.</p>
-        
-                            <img src="./console-ss.JPG" class="img-fluid rounded shadow mb-5" />
-        
-                            <p class="text-center">Google Chrome tarayıcı konsolu. main.js dosyasındaki Hello World mesajı
-                                görünmekte.</p>
-        
+
+                            <p>JavaScript kodunu tarayıcıda görüntülemek için <kbd>Ctrl + Shift + J</kbd> ve/veya
+                                <kbd>F12</kbd>
+                                tuş kombinasyonu üzerinden tarayıcı konsolu açılır. Websitesinin hızına etki etmemesi
+                                için <code>HTML</code> sayfalarında <code>body</code> etiketi kapanmadan önce
+                                yerleştirmeniz daha iyi olacaktır. Bir sayfada birden fazla harici JavaScript dosyasını
+                                ekleyebilirsiniz.
+                            </p>
+
+                            <figure class="figure text-center w-100">
+                                <img src="./console-ss.JPG" class="figure-img img-fluid rounded shadow"
+                                    alt="Google Chrome tarayıcı konsolu. main.js dosyasındaki Hello World mesajı görünmekte.">
+                                <figcaption class="figure-caption custom-caption">
+                                    Google Chrome tarayıcı konsolu. main.js dosyasındaki Hello World mesajı görünmekte.
+                                </figcaption>
+                            </figure>
+
                             <div class="col-12 alert-info-custom rounded px-2 pt-2 mb-5">
                                 <h3 class="py-2 px-2"><i class="fa-solid fa-circle-info"></i> Bilgi</h3>
                                 <p class="py-2 px-2">Kodların bulunduğu JavaScript dosyalarını sayfanın sonundan
                                     indirebilirsiniz.</p>
                             </div>
-        
-                            <h3 id="Node.Js-Üzerinde-Çalıştırma" class="d-flex align-items-center"> <a
-                                    href="#Node.Js-Üzerinde-Çalıştırma" class="d-flex align-items-center pe-2">
+
+                            <h2 id="Node.Js-Üzerinde-Çalıştırma" class="section-heading">
+                                <a href="#Node.Js-Üzerinde-Çalıştırma" class="heading-link">
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    <span>Node.Js Üzerinde Çalıştırma</span>
+                                </a>
+                            </h2>
+
+                            <p>JavaScript'i Node.Js üzerinde çalıştırması mümkündür. Node.Js üzerinde çalıştırmak için
+                                Node.Js
+                                kurulu olmalıdır. Node.Js üzerinden çalıştırmak için komut satırından <code>node</code>
+                                ilgili
+                                dosyanın adını yazmanız yeterlidir. (Aşağıdaki örnekte dosya ismi örnek olarak
+                                verilmiştir.
+                                Kendi bilgisayarınızda çalıştırırken app yerine adlandırdığınız dosya adını
+                                yazmalısınız.)</p>
+
+                            <pre
+                                class="rounded block line-numbers shadow-sm code-block-hover"><code class="language-bash">node app.js</code></pre>
+
+                            <h2 id="Dosyalar" class="section-heading"> <a href="#Dosyalar" class="heading-link">
                                     <i class="fa-solid fa-hashtag"></i>
-                                </a> Node.Js Üzerinde Çalıştırma</h3>
-        
-                            <p>JavaScript'i Node.Js üzerinde çalıştırması mümkündür. Node.Js üzerinde çalıştırmak için Node.Js
-                                kurulu olmalıdır. Node.Js üzerinden çalıştırmak için komut satırından <code>node</code> ilgili
-                                dosyanın adını yazmanız yeterlidir. (Aşağıdaki örnekte dosya ismi örnek olarak verilmiştir.
-                                Kendi bilgisayarınızda çalıştırırken app yerine adlandırdığınız dosya adını yazmalısınız.)</p>
-        
-                            <pre class="rounded block line-numbers"><code class="language-bash">node app.js</code></pre>
-        
-                            <h3 id="Dosyalar" class="d-flex align-items-center"> <a
-                                href="#Dosyalar" class="d-flex align-items-center pe-2">
-                                <i class="fa-solid fa-hashtag"></i>
-                            </a> Dosyalar</h3>
-        
+                                    <span>Dosyalar</span>
+                                </a> </h2>
+
                             <p><a href="./learn-js-run-code-example.rar" download>Egzersiz Dosyaları</a></p>
-        
+
+                            <h3 id="Kaynakça">Kaynakça</h3>
+                            <ul>
+                                <li><a href="https://gist.github.com/guest271314/bd292fc33e1b30dede0643a283fadc6a"
+                                        target="_blank">https://gist.github.com/guest271314/bd292fc33e1b30dede0643a283fadc6a</a>
+                                </li>
+
+                                <li><a href="https://techcrunch.com/2018/12/06/microsoft-edge-goes-chromium-and-macos/"
+                                        target="_blank">https://techcrunch.com/2018/12/06/microsoft-edge-goes-chromium-and-macos/</a>
+                                </li>
+
+                                <li><a href="https://astexplorer.net/" target="_blank">https://astexplorer.net/</a></li>
+                                <li><a href="https://blog.greenroots.info/javascript-interpreted-or-compiled-the-debate-is-over"
+                                        target="_blank">https://blog.greenroots.info/javascript-interpreted-or-compiled-the-debate-is-over</a>
+                                </li>
+                                <li><a href="https://web.stanford.edu/class/cs98si/slides/overview.html"
+                                        target="_blank">https://web.stanford.edu/class/cs98si/slides/overview.html</a>
+                                </li>
+                                <li><a href="https://dev.to/robiulhr/is-javascript-compiled-or-interpreted-language-l20"
+                                        target="_blank">https://dev.to/robiulhr/is-javascript-compiled-or-interpreted-language-l20</a>
+                                </li>
+
+                                <li><a href="https://www.simplilearn.com/difference-between-compiler-and-interpreter-article"
+                                        target="_blank">https://www.simplilearn.com/difference-between-compiler-and-interpreter-article</a>
+                                </li>
+
+                                <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Engine/JavaScript"
+                                        target="_blank">https://developer.mozilla.org/en-US/docs/Glossary/Engine/JavaScript</a>
+                                </li>
+
+                                <li><a href="https://dev.to/samyak112/what-is-a-javascript-engine-4gjo"
+                                        target="_blank">https://dev.to/samyak112/what-is-a-javascript-engine-4gjo</a>
+                                </li>
+
+                                <li><a href="https://www.freecodecamp.org/news/javascript-engine-and-runtime-explained"
+                                        target="_blank">https://www.freecodecamp.org/news/javascript-engine-and-runtime-explained</a>
+                                </li>
+
+                                <li><a href="https://www.javascripttutorial.net/javascript-call-stack/"
+                                        target="_blank">https://www.javascripttutorial.net/javascript-call-stack/</a>
+                                </li>
+
+                                <li><a href="https://dev.to/hamiecod/what-is-call-stack-2c2k"
+                                        target="_blank">https://dev.to/hamiecod/what-is-call-stack-2c2k</a></li>
+
+                                <li><a href="https://prototurk.com/makaleler/javascript-te-event-loop-baslangic-rehberi"
+                                        target="_blank">https://prototurk.com/makaleler/javascript-te-event-loop-baslangic-rehberi</a>
+                                </li>
+
+                                <li><a href="https://blazity.com/blog/demystifying-javascript-runtime-environment-web-api-task-queue-event-loop"
+                                        target="_blank">https://blazity.com/blog/demystifying-javascript-runtime-environment-web-api-task-queue-event-loop</a>
+                                </li>
+
+                                <li><a href="https://nodejs.org/en/learn/getting-started/differences-between-nodejs-and-the-browser"
+                                        target="_blank">https://nodejs.org/en/learn/getting-started/differences-between-nodejs-and-the-browser</a>
+                                </li>
+
+                            </ul>
+
                         </div>
-        
-                        <h3 id="Kaynakça">Kaynakça</h3>
-                        <ul>
-                            <li><a href="https://gist.github.com/guest271314/bd292fc33e1b30dede0643a283fadc6a"
-                                    target="_blank">https://gist.github.com/guest271314/bd292fc33e1b30dede0643a283fadc6a</a>
-                            </li>
-        
-                            <li><a href="https://techcrunch.com/2018/12/06/microsoft-edge-goes-chromium-and-macos/"
-                                    target="_blank">https://techcrunch.com/2018/12/06/microsoft-edge-goes-chromium-and-macos/</a>
-                            </li>
-        
-                            <li><a href="https://astexplorer.net/" target="_blank">https://astexplorer.net/</a></li>
-                            <li><a href="https://blog.greenroots.info/javascript-interpreted-or-compiled-the-debate-is-over"
-                                    target="_blank">https://blog.greenroots.info/javascript-interpreted-or-compiled-the-debate-is-over</a>
-                            </li>
-                            <li><a href="https://web.stanford.edu/class/cs98si/slides/overview.html"
-                                    target="_blank">https://web.stanford.edu/class/cs98si/slides/overview.html</a>
-                            </li>
-                            <li><a href="https://dev.to/robiulhr/is-javascript-compiled-or-interpreted-language-l20"
-                                    target="_blank">https://dev.to/robiulhr/is-javascript-compiled-or-interpreted-language-l20</a>
-                            </li>
-        
-                            <li><a href="https://www.simplilearn.com/difference-between-compiler-and-interpreter-article"
-                                    target="_blank">https://www.simplilearn.com/difference-between-compiler-and-interpreter-article</a>
-                            </li>
-        
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Engine/JavaScript"
-                                    target="_blank">https://developer.mozilla.org/en-US/docs/Glossary/Engine/JavaScript</a></li>
-        
-                            <li><a href="https://dev.to/samyak112/what-is-a-javascript-engine-4gjo"
-                                    target="_blank">https://dev.to/samyak112/what-is-a-javascript-engine-4gjo</a></li>
-        
-                            <li><a href="https://www.freecodecamp.org/news/javascript-engine-and-runtime-explained"
-                                    target="_blank">https://www.freecodecamp.org/news/javascript-engine-and-runtime-explained</a>
-                            </li>
-        
-                            <li><a href="https://www.javascripttutorial.net/javascript-call-stack/"
-                                    target="_blank">https://www.javascripttutorial.net/javascript-call-stack/</a></li>
-        
-                            <li><a href="https://dev.to/hamiecod/what-is-call-stack-2c2k"
-                                    target="_blank">https://dev.to/hamiecod/what-is-call-stack-2c2k</a></li>
-        
-                            <li><a href="https://prototurk.com/makaleler/javascript-te-event-loop-baslangic-rehberi"
-                                    target="_blank">https://prototurk.com/makaleler/javascript-te-event-loop-baslangic-rehberi</a>
-                            </li>
-        
-                            <li><a href="https://blazity.com/blog/demystifying-javascript-runtime-environment-web-api-task-queue-event-loop"
-                                    target="_blank">https://blazity.com/blog/demystifying-javascript-runtime-environment-web-api-task-queue-event-loop</a>
-                            </li>
-        
-                            <li><a href="https://nodejs.org/en/learn/getting-started/differences-between-nodejs-and-the-browser"
-                                    target="_blank">https://nodejs.org/en/learn/getting-started/differences-between-nodejs-and-the-browser</a>
-                            </li>
-        
-                        </ul>
-        
-                    </div>
-        
-                </div>
 
             </section>
 
