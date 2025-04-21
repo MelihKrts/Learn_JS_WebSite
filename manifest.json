@@ -461,7 +461,7 @@
             "src": "./public/screenshot/screenshot.png",
             "sizes": "1013x2280",
             "type": "image/png",
-            "form_factor": "narrow"
+            "form_factor": "wide"
         },
         {
             "src": "./public/screenshot/screenshot_two.png",
