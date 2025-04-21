@@ -459,13 +459,13 @@
     "screenshots": [
         {
             "src": "./public/screenshot/screenshot.png",
-            "sizes": "1013x2216",
+            "sizes": "1013x2280",
             "type": "image/png",
             "form_factor": "narrow"
         },
         {
             "src": "./public/screenshot/screenshot_two.png",
-            "sizes": "1013x2216",
+            "sizes": "1013x2280",
             "type": "image/png",
             "form_factor": "narrow"
         }
