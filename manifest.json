@@ -471,7 +471,7 @@
         },
         {
             "src": "./public/screenshot/screenshot_two.png",
-            "sizes": "1045x2237",
+            "sizes": "1013x2216",
             "type": "image/png",
             "form_factor": "narrow"
         }
